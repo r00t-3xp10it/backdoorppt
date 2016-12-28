@@ -10,9 +10,7 @@
     Author: pedro ubuntu  [ r00t-3xp10it ]
     Suspicious-Shell-Activity© (SSA) RedTeam develop @2016
 
-<br />
-
-`transform your payload.exe into one fake word doc (.ppt)`
+## transform your payload.exe into one fake word doc (.ppt)`
 
     Simple script that allow users to add a ms-word icon to one
     existing executable.exe (using resource-hacker as backend appl)
@@ -23,5 +21,5 @@
 
 <br />
 
-Credits: Damon Mohammadbagher
-Article: goo.gl/hKHesk
+Credits: **Damon Mohammadbagher**
+Article: **goo.gl/hKHesk**
