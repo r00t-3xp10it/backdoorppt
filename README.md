@@ -1,4 +1,4 @@
-[![Version](https://img.shields.io/badge/backdoorppt-brightgreen.svg?maxAge=259200)]()
+[![Version](https://img.shields.io/badge/backdoorppt-1.0-brightgreen.svg?maxAge=259200)]()
 [![Stage](https://img.shields.io/badge/Release-developing-red.svg)]()
 [![Build](https://img.shields.io/badge/Supported_OS-kali-orange.svg)]()
 [![AUR](https://img.shields.io/aur/license/yaourt.svg)]()
