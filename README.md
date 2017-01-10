@@ -23,7 +23,8 @@
 ## dependencies (backend applications required)
 
     wine, ruby, resource hacker(wine)
-    "backdoorppt script will work on wine 32 or 64 bites"
+    'backdoorppt script will work on wine 32 or 64 bites'
+    'it also installs ResourceHacker under .wine directory"
 
 <br />
 
