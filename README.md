@@ -4,7 +4,7 @@
 [![AUR](https://img.shields.io/aur/license/yaourt.svg)]()
 
 # backdoorppt
-### 'A binary (exe) transformation tool'
+'A binary (exe) transformation tool'
 
     Version release: v1.0-Alpha
     Distros Supported: Linux Kali
