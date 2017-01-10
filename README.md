@@ -3,7 +3,7 @@
 [![Build](https://img.shields.io/badge/Supported_OS-kali-orange.svg)]()
 [![AUR](https://img.shields.io/aur/license/yaourt.svg)]()
 
-# backdoorppt - 'A binary (exe) transformation tool'
+# backdoorppt - A binary transformation tool
 
     Version release: v1.0-Alpha
     Distros Supported: Linux Kali
