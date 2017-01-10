@@ -12,7 +12,7 @@
 
 <br />
 
-## transform your payload.exe into one fake word doc (.ppt)
+### transform your payload.exe into one fake word doc (.ppt)
 
     Simple script that allow users to add a ms-word icon to one
     existing executable.exe (using resource-hacker as backend appl)
@@ -21,12 +21,19 @@
 
     "backdoor transformed final name: resumeexe.ppt"
 
-## dependencies (backend applications required)
+### dependencies (backend applications required)
 
     wine, ruby, resource hacker(wine)
 
     'backdoorppt script will work on wine 32 or 64 bites'
     'it also installs ResourceHacker under .wine directory'
+
+### tool restrictions
+
+    1º - backdoorppt only supports windows binarys to be transformed (.exe)
+    2º - backdoorppt requires ResourceHacker installed (wine) to change icons
+    3º - backdoorppt does not build real word doc files, but it will transform
+         your payload.exe into a fake word doc file (social engineering).
 
 <br />
 
