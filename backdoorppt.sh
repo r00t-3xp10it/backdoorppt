@@ -75,19 +75,6 @@ sleep 1
 exit
 fi
 
-apc=`which ettercap`
-if [ "$?" != "0" ]; then
-echo ""
-echo ${RedF}[☠]${white} ettercap installation '->' ${RedF}not found! ${Reset};
-sleep 1
-echo ${RedF}[☠]${white} This script requires ettercap to work! ${Reset};
-echo ${RedF}[☠]${white} Please run: sudo apt-get install ettercap ${Reset};
-echo ${RedF}[☠]${white} to install missing dependencies... ${Reset};
-exit
-else
-echo ${BlueF}[☆]${white} Ettercap installation '->' ${GreenF}found! ${Reset};
-sleep 1
-fi
 
 
 
