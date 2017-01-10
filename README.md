@@ -1,6 +1,7 @@
 [![Version](https://img.shields.io/badge/backdoorppt-1.1-brightgreen.svg?maxAge=259200)]()
 [![Stage](https://img.shields.io/badge/Release-developing-red.svg)]()
-[![Build](https://img.shields.io/badge/Supported_OS-kali,ubuntu-brightblue.svg)]()
+[![Build](https://img.shields.io/badge/Supported_OS-kali,ubuntu-blue.svg)]()
+
 
 # backdoorppt - 'A binary transformation tool'
 
