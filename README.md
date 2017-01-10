@@ -5,12 +5,10 @@
 
 # backdoorppt - A binary transformation tool
 
-    Version release: v1.0-Alpha
+    Version release: v1.1-Beta
     Distros Supported: Linux Kali
     Author: pedro ubuntu  [ r00t-3xp10it ]
     Suspicious-Shell-Activity© (SSA) RedTeam develop @2016
-
-    WARNNING: THIS PROJECT ITS UNDER DEVELOP
 
 <br />
 
@@ -18,7 +16,7 @@
 
     Simple script that allow users to add a ms-word icon to one
     existing executable.exe (using resource-hacker as backend appl)
-    and a ruby onelinner command that will hidde the .exe extension
+    and a ruby one-liner command that will hidde the .exe extension
     and add the word doc .ppt extension to the end of the file name.
 
     "backdoor transformed final name: resumeexe.ppt"
@@ -29,6 +27,10 @@
 
 <br />
 
+![backdoorppt](https://dl.dropboxusercontent.com/u/21426454/github/backdoorppt.png)
+
+<br />
 Credits: **Damon Mohammadbagher**
 <br />
 Article: **goo.gl/hKHesk**
+
