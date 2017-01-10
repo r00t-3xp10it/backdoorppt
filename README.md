@@ -1,14 +1,13 @@
 [![Version](https://img.shields.io/badge/backdoorppt-1.0-brightgreen.svg?maxAge=259200)]()
 [![Stage](https://img.shields.io/badge/Release-developing-red.svg)]()
 [![Build](https://img.shields.io/badge/Supported_OS-kali-orange.svg)]()
-[![AUR](https://img.shields.io/aur/license/yaourt.svg)]()
 
-# backdoorppt - A binary transformation tool
+# backdoorppt 'A binary transformation tool'
 
     Version release: v1.1-Beta
     Distros Supported: Linux Kali
     Author: pedro ubuntu  [ r00t-3xp10it ]
-    Suspicious-Shell-Activity© (SSA) RedTeam develop @2016
+    Suspicious-Shell-Activity© (SSA) RedTeam develop @2017
 
 <br />
 
