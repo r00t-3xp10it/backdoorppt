@@ -2,7 +2,7 @@
 [![Stage](https://img.shields.io/badge/Release-developing-red.svg)]()
 [![Build](https://img.shields.io/badge/Supported_OS-kali-orange.svg)]()
 
-# backdoorppt 'A binary transformation tool'
+# backdoorppt - 'A binary transformation tool'
 
     Version release: v1.1-Beta
     Distros Supported: Linux Kali
@@ -23,6 +23,7 @@
 ## dependencies (backend applications required)
 
     wine, ruby, resource hacker(wine)
+    "backdoorppt script will work on wine 32 or 64 bites"
 
 <br />
 
