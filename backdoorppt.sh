@@ -1,7 +1,7 @@
 #!/bin/sh
 ###
 # backdoorppt - a binary transformation tool
-# Author: pedr0 Ubuntu [r00t-3xp10it] version: 1.1
+# Author: pedr0 Ubuntu [r00t-3xp10it] version: 1.3
 # Suspicious-Shell-Activity (SSA) RedTeam develop @2017
 # codename: strange things happen under windows
 #
@@ -32,7 +32,7 @@ Reset="${Escape}[0m";
 # ---------------------
 # variable declarations
 # ---------------------
-VeR="1.1"
+VeR="1.3"
 ArCh=`arch`
 IPATH=`pwd`
 HoME=`echo ~`
