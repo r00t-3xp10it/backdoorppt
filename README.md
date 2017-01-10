@@ -19,6 +19,10 @@
 
     "backdoor transformed final name: resumeexe.ppt"
 
+## dependencies
+
+    wine, ruby, resource hacker(wine)
+
 <br />
 
 Credits: **Damon Mohammadbagher**
