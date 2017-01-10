@@ -19,7 +19,7 @@
     Simple script that allow users to add a ms-word icon to one
     existing executable.exe (using resource-hacker as backend appl)
     and a ruby onelinner command that will hidde the .exe extension
-    and add the word doc .ppt extension to the end of file name.
+    and add the word doc .ppt extension to the end of the file name.
 
     "backdoor transformed final name: resumeexe.ppt"
 
