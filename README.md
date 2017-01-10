@@ -4,11 +4,14 @@
 [![AUR](https://img.shields.io/aur/license/yaourt.svg)]()
 
 # backdoorppt
+### 'A binary (exe) transformation tool'
 
     Version release: v1.0-Alpha
     Distros Supported: Linux Kali
     Author: pedro ubuntu  [ r00t-3xp10it ]
     Suspicious-Shell-Activity© (SSA) RedTeam develop @2016
+
+    WARNNING: THIS PROJECT ITS UNDER DEVELOP
 
 ## transform your payload.exe into one fake word doc (.ppt)
 
