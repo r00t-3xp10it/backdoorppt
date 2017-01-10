@@ -6,7 +6,7 @@
 # backdoorppt - 'A binary transformation tool'
 
     Version release: v1.2-Beta
-    Distros Supported: Linux Kali
+    Distros Supported: Linux Kali, Ubuntu, Mint
     Author: pedro ubuntu  [ r00t-3xp10it ]
     Suspicious-Shell-Activity© (SSA) RedTeam develop @2017
 
