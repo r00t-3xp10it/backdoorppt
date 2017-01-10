@@ -69,7 +69,7 @@ cat << !
 
 
 Colors;
-echo ${BlueF}[☆]${YellowF} Checking backend applications! ${Reset};
+echo ${YellowF}[⊶] Checking backend applications! ${Reset};
 sleep 1
 # ----------------------
 # check for dependencies
@@ -115,11 +115,10 @@ fi
 
 
 
-
-
 # ------------------------
 # start of script funtions
 # ------------------------
+echo ${YellowF}[⊶] Working on backdoor agent! ${Reset};
 rUn=$(zenity --question --title="☠ BackdoorPPt ☠" --text "Execute this module?" --width 270) > /dev/null 2>&1
 if [ "$?" -eq "0" ]; then
 
