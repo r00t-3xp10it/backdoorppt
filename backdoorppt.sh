@@ -35,7 +35,7 @@ Reset="${Escape}[0m";
 VeR="1.1"
 ArCh=`arch`
 IPATH=`pwd`
-H0ME=`echo ~`
+HoME=`echo ~`
 
 
 
@@ -100,7 +100,7 @@ echo ${BlueF}[☆]${white} Wine installation  '->' ${GreenF}found! ${Reset};
 sleep 1
 fi
 
-if [ -e "/root/.wine/drive_c/$PgFi" ]; then
+if [ -e "$HoME/.wine/drive_c/$PgFi" ]; then
 echo ${BlueF}[☆]${white} Wine Program Files '->' ${GreenF}found! ${Reset};
 sleep 1
 else
@@ -133,7 +133,7 @@ UpL=$(zenity --title "☠ PAYLOAD TO BE TRANSFORMED ☠" --filename=$IPATH --fil
   sleep 1
 
     # check for resource hacker installation (wine)
-    if [ -f "$H0ME/.wine/drive_c/$PgFi/Resource Hacker/ResourceHacker.exe" ]; then
+    if [ -f "$HoME/.wine/drive_c/$PgFi/Resource Hacker/ResourceHacker.exe" ]; then
       echo ${BlueF}[☆]${white} ResourceHacker.exe '->' ${GreenF}found! ${Reset};
       sleep 1
     else
@@ -145,7 +145,7 @@ UpL=$(zenity --title "☠ PAYLOAD TO BE TRANSFORMED ☠" --filename=$IPATH --fil
 
       # wine command to call resourcehacker and add a MS-WORD.ico to the backdoor
       echo ${BlueF}[☆]${white} Transforming backdoor agent '->' ${GreenF}done... ${Reset};
-      $arch $H0ME/.wine/drive_c/"$PgFi"/"Resource Hacker"/ResourceHacker.exe -open $UpL -save $IPATH/backdoor.exe -action addskip -res $IPATH/MS-Word-32x32.ico -mask ICONGROUP,MAINICON,
+      $arch $HoME/.wine/drive_c/"$PgFi"/"Resource Hacker"/ResourceHacker.exe -open $UpL -save $IPATH/backdoor.exe -action addskip -res $IPATH/MS-Word-32x32.ico -mask ICONGROUP,MAINICON,
       echo ${BlueF}[☆]${white} Change backdoor agent icon '->' ${GreenF}done... ${Reset};
       sleep 1
 

@@ -1,11 +1,11 @@
-[![Version](https://img.shields.io/badge/backdoorppt-1.1-brightgreen.svg?maxAge=259200)]()
+[![Version](https://img.shields.io/badge/backdoorppt-1.2-brightgreen.svg?maxAge=259200)]()
 [![Stage](https://img.shields.io/badge/Release-developing-red.svg)]()
-[![Build](https://img.shields.io/badge/Supported_OS-kali,ubuntu-blue.svg)]()
+[![Build](https://img.shields.io/badge/Supported_OS-kali,Ubuntu,Mint-blue.svg)]()
 
 
 # backdoorppt - 'A binary transformation tool'
 
-    Version release: v1.1-Beta
+    Version release: v1.2-Beta
     Distros Supported: Linux Kali
     Author: pedro ubuntu  [ r00t-3xp10it ]
     Suspicious-Shell-Activity© (SSA) RedTeam develop @2017
@@ -24,11 +24,13 @@
 ## dependencies (backend applications required)
 
     wine, ruby, resource hacker(wine)
+
     'backdoorppt script will work on wine 32 or 64 bites'
-    'it also installs ResourceHacker under .wine directory"
+    'it also installs ResourceHacker under .wine directory'
 
 <br />
 
+### some screenshots
 ![backdoorppt](https://dl.dropboxusercontent.com/u/21426454/github/backdoorppt.png)
 
 <br />
