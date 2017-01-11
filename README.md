@@ -38,6 +38,9 @@
 
 <br />
 
+## Backdoorppt 1º run (linux distros)
+![backdoorppt](https://dl.dropboxusercontent.com/u/21426454/github/backdoorppt-requires.png)
+
 ## Backdoorppt working (linux distros)
 ![backdoorppt](https://dl.dropboxusercontent.com/u/21426454/github/backdoorppt.png)
 

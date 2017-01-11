@@ -46,11 +46,13 @@ HoME=`echo ~`
 # configuring correct arch
 # ------------------------
 if [ "$ArCh" = "i686" ]; then
+dEd="x86"
 arch="wine"
 PgFi="Program Files"
 else
+dEd="x64"
 arch="wine64"
-PgFi="Program Files(x86)"
+PgFi="Program Files (x86)"
 fi
 
 
@@ -132,7 +134,7 @@ IcOn=$(zenity --list --title "☠ ICON REPLACEMENT  ☠" --text "Chose one icon 
 
 
   # wine configurtions (winecfg)
-  echo ${BlueF}[☆]${white} Select [${GreenF}windows 7${white}] from winecfg ${Reset};
+  echo ${BlueF}[☆]${white} Select [${GreenF}windows 7${white}] from winecfg... ${Reset};
 cat << !
 
     The ResourceHacker provided by backdoorppt tool
@@ -150,7 +152,13 @@ cat << !
     else
       echo ${RedF}[☠]${white} ResourceHacker.exe '->' ${RedF} not found! ${Reset};
       sleep 1
-      echo ${BlueF}[☆]${white} Installing ResourceHacker under .wine directory ${Reset};
+cat << !
+    Installing ResourceHacker under .wine directorys... 
+    Version:windows7 Arch:$dEd Path:drive_c/$PgFi
+    $HoME/.wine/drive_c/$PgFi/Resource Hacker/ResourceHacker.exe
+
+!
+      sleep 3
       xterm -T "BackdoorPPt" -geometry 90x26 -e "$arch $IPATH/bin/reshacker_setup.exe && sleep 3"
     fi
 
