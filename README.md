@@ -19,7 +19,8 @@
     and a ruby one-liner command that will hidde the .exe extension
     and add the word doc .ppt extension to the end of the file name.
 
-    "backdoor transformed final name: resumeexe.ppt"
+    Hints:
+    backdoor transformed final name: resumeexe.ppt
 
 ## Dependencies (backend applications required)
 
@@ -32,8 +33,9 @@
 
     1º - backdoorppt only supports windows binarys to be transformed (.exe -> .ppt)
     2º - backdoorppt requires ResourceHacker installed (wine) to change the icons
-    3º - backdoorppt does not build real ms-word doc files, but it will transform
-         your payload.exe into a fake word doc file (social engineering execution).
+    3º - backdoorppt present you 4 available diferent icons (.ico) to chose from
+    4º - backdoorppt does not build real ms-word doc files, but it will transform
+         your payload.exe to look like one word doc file (social engineering).
 
 <br />
 
