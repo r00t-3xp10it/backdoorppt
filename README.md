@@ -19,7 +19,6 @@
     and a ruby one-liner command that will hidde the .exe extension
     and add the word doc .ppt extension to the end of the file name.
 
-    Hints:
     backdoor transformed final name: resumeexe.ppt
 
 ## Dependencies (backend applications required)
