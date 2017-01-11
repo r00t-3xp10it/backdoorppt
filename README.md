@@ -38,14 +38,19 @@
 
 <br />
 
-## Backdoorppt 1º run (linux distros)
+## Backdoorppt 1º run (Kali distros)
 ![backdoorppt](https://dl.dropboxusercontent.com/u/21426454/github/backdoorppt-requires.png)
 
-## Backdoorppt working (linux distros)
+## Backdoorppt working (Kali distros)
 ![backdoorppt](https://dl.dropboxusercontent.com/u/21426454/github/backdoorppt.png)
 
 ## transformed file on-target system (windows)
 ![backdoorppt](https://dl.dropboxusercontent.com/u/21426454/github/gg.png)
+
+## Final notes
+
+    the target user thinks we is opening a word doc file,
+    but in fact we is executing one binary payload insted.
 
 <br />
 Credits: **Damon Mohammadbagher**
