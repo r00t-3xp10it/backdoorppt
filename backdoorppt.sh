@@ -133,7 +133,13 @@ IcOn=$(zenity --list --title "☠ ICON REPLACEMENT  ☠" --text "Chose one icon 
 
   # wine configurtions (winecfg)
   echo ${BlueF}[☆]${white} Select [${GreenF}windows 7${white}] from winecfg ${Reset};
-  sleep 2
+cat << !
+
+    The ResourceHacker provided by backdoorppt tool
+    requires wine to be set to 'windows 7' version.
+
+!
+  sleep 3
   winecfg > /dev/null 2>&1
   sleep 1
 
