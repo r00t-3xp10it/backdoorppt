@@ -18,7 +18,7 @@
 # (bash name transformation == name.ppt.exe)
 # Accepted values are: YES or NO
 ----------------------
-BASH_TRANSFORMATION=YES
+BASH_TRANSFORMATION=NO
 ----------------------
 
 
