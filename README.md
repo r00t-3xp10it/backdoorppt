@@ -55,6 +55,7 @@
 
 ## transformed file on-target system (windows)
 ![backdoorppt](https://dl.dropboxusercontent.com/u/21426454/github/gg.png)
+
 ![backdoorppt](https://dl.dropboxusercontent.com/u/21426454/github/backdoorppt-windows.jpg)
 
 ## Final notes
