@@ -7,7 +7,7 @@
 #
 # [ TOOL DESCRIPTION ]
 # This tool Supports wine 32 or 64 bits installations
-# Available with 4 icons to change (backdoorppt/icons)
+# Available with 6 icons to change (backdoorppt/icons)
 # Available 2 diferent name transformations methods (ruby or bash)
 # 1 - Right to Left Override (nameexe.ppt) <-- ruby
 # 2 - Hide Extensions for Known File Types (name.ppt.exe) <-- bash
@@ -137,7 +137,7 @@ if [ "$?" -eq "0" ]; then
 # orginal payload full-path variable
 UpL=$(zenity --title "☠ PAYLOAD TO BE TRANSFORMED ☠" --filename=$IPATH --file-selection --text "chose payload to be transformed") > /dev/null 2>&1
 # icon replacement variable
-IcOn=$(zenity --list --title "☠ ICON REPLACEMENT  ☠" --text "Chose one icon from the list." --radiolist --column "Pick" --column "Option" TRUE "MS-Word-32x32.ico" FALSE "MS-Excel-32x32.ico" FALSE "MS-powerpoint-32x32.ico" FALSE "Vector_App.ico" --width 350 --height 260) > /dev/null 2>&1
+IcOn=$(zenity --list --title "☠ ICON REPLACEMENT  ☠" --text "Chose one icon from the list." --radiolist --column "Pick" --column "Option" TRUE "Microsoft-Word-2016.ico" FALSE "Microsost-Word-2013.ico" FALSE "Powerpoint-green.ico" FALSE "Powerpoint-blue.ico" FALSE "Powerpoint-orange.ico" FALSE "Microsoft-Excel.ico" --width 350 --height 260) > /dev/null 2>&1
 # input payload outputname
 if [ "$tRan" = "YES" ];then
 MiP=$(zenity --entry --title "☠ PAYLOAD FINAL NAME ☠" --text "example: curriculum" --width 300) > /dev/null 2>&1

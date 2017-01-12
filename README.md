@@ -41,7 +41,7 @@
 
     1º - backdoorppt only supports windows binarys to be transformed (.exe -> .ppt)
     2º - backdoorppt requires ResourceHacker installed (wine) to change the icons
-    3º - backdoorppt present you 4 available diferent icons (.ico) to chose from
+    3º - backdoorppt present you 6 available diferent icons (.ico) to chose from
     4º - backdoorppt does not build real ms-word doc files, but it will transform
          your payload.exe to look like one word doc file (social engineering).
 
