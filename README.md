@@ -19,7 +19,15 @@
     and a ruby one-liner command that will hidde the .exe extension
     and add the word doc .ppt extension to the end of the file name.
 
-    backdoor transformed final name: resumeexe.ppt
+<br />
+
+## Spoof extension methods
+
+    backdoorppt tool uses 2 diferent extension spoof methods:
+    'Right to Left Override' & 'Hide Extensions for Known File Types'
+    Edit the 'settings' file to chose what method should be used..
+![backdoorppt](https://dl.dropboxusercontent.com/u/21426454/github/backdoorppt-settings.png)
+
 
 ## Dependencies (backend applications required)
 
@@ -28,7 +36,7 @@
     'backdoorppt script will work on wine 32 or 64 bites'
     'it also installs ResourceHacker under .wine directory'
 
-## Tool restrictions
+## Tool Limitations
 
     1º - backdoorppt only supports windows binarys to be transformed (.exe -> .ppt)
     2º - backdoorppt requires ResourceHacker installed (wine) to change the icons
