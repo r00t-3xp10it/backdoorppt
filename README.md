@@ -32,7 +32,7 @@
 
 ## Dependencies (backend applications required)
 
-    wine, ruby, ResourceHacker(wine)
+    xterm, wine, ruby, ResourceHacker(wine)
 
     'backdoorppt script will work on wine 32 or 64 bites'
     'it also installs ResourceHacker under .wine directory'
@@ -53,9 +53,7 @@
 ## Backdoorppt working (Kali distros)
 ![backdoorppt](https://dl.dropboxusercontent.com/u/21426454/github/backdoorppt.png)
 
-## transformed file on-target system (windows)
-![backdoorppt](https://dl.dropboxusercontent.com/u/21426454/github/gg.png)
-
+## transformed files on-target system (windows)
 ![backdoorppt](https://dl.dropboxusercontent.com/u/21426454/github/backdoorppt-windows.jpg)
 
 ## Final notes
