@@ -25,12 +25,14 @@
     backdoorppt tool uses 2 diferent extension spoof methods:
     'Right to Left Override' & 'Hide Extensions for Known File Types'
     Edit the 'settings' file to chose what method should be used..
+
+    cd backdoorppt && nano settings
 ![backdoorppt](https://dl.dropboxusercontent.com/u/21426454/github/backdoorppt-settings.png)
 
 
 ## Dependencies (backend applications required)
 
-    wine, ruby, resource hacker(wine)
+    wine, ruby, ResourceHacker(wine)
 
     'backdoorppt script will work on wine 32 or 64 bites'
     'it also installs ResourceHacker under .wine directory'
