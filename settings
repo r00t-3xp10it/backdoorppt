@@ -1,0 +1,27 @@
+##############################################################################
+#                                                                            #
+#    The following config file will allow you to customize settings within   #
+#    BACKDOORPPT tool, The lines that Do not have comment code ("#") are     #
+#    the fields you want to toy with. There are additional options, read     #
+#    the comments For additional config settings.                            #
+#                                                                            #
+#    CHANGING THIS SETTINGS WILL AFFECT 'backdoorppt.sh' WAY OF WORKING      #
+#                                                                            #
+##############################################################################
+
+
+
+### Use the 2º name transformation method?
+# backdoorppt tool by default uses Damon Method
+# (ruby name transformation == nameexe.ppt)
+# This next value allow you to use the 2º method
+# (bash name transformation == name.ppt.exe)
+# Accepted values are: YES or NO
+----------------------
+BASH_TRANSFORMATION=YES
+----------------------
+
+
+
+_EOF
+
