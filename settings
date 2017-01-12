@@ -11,15 +11,28 @@
 
 
 
-### Use the 2º name transformation method?
-# backdoorppt tool by default uses Damon Method
-# (ruby name transformation == nameexe.ppt)
-# This next value allow you to use the 2º method
-# (bash name transformation == name.ppt.exe)
-# Accepted values are: YES or NO
+### Spoof extension method to use?
+#
+# RUBY - Right to Left Override
+# This trick uses Right to Left unicode to reverse the last six characters so that
+# the extension is spoofed, for example a notes.exe file can be renamed to notesexe.txt
+# Although the file extension clearly shows as .txt in Explorer the Windows operating
+# system still recognizes the file as an application. example of 1º method: notesexe.txt
+#
+# BASH - Hide Extensions for Known File Types
+# There is a setting in Folder Options where you can hide the file extension so that
+# only the filename is visible in Explorer while the extension is hidden. The problem
+# with this setting is the default option is set to hide and a less careful user can be
+# tricked when there is a double extension. An example of 2º method: notes.txt.exe
+#
+# backdoorppt by default uses 'Right to Left Override' (ruby)
+# but it can be config to use 'Hide Extensions for Known File Types' (bash)
+# Accepted values are: YES (bash) or NO (ruby)
 ----------------------
 BASH_TRANSFORMATION=NO
 ----------------------
+
+
 
 
 

