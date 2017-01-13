@@ -1,6 +1,6 @@
 #!/bin/sh
 ###
-# backdoorppt - a binary transformation tool
+# backdoorppt - A MS Office spoof extensions tool
 # Author: pedr0 Ubuntu [r00t-3xp10it] version: 1.5
 # Suspicious-Shell-Activity (SSA) RedTeam develop @2017
 # codename: strange things happen under windows
@@ -66,11 +66,11 @@ fi
 # ------------
 cat << !
 
-    +-+-+-+-+-+-+-+-+-+-+-+
-    |b|a|c|k|d|o|o|r|p|p|t|
-    +-+-+-+-+-+-+-+-+-+-+-+
- 'A binary transformation tool'
- Credits: Damon Mohammadbagher
+    +-+-+-+-+-+-+-+-+-+-+-+-+---+
+    |b|a|c|k|d|o|o|r|p|p|t|:|$VeR|
+    +-+-+-+-+-+-+-+-+-+-+-+-+---+
+    'Office spoof extensions tool'
+    Credits: Damon Mohammadbagher
 
 !
 
@@ -87,8 +87,8 @@ else
 apc=`which ruby`
 if [ "$?" != "0" ]; then
 echo ""
-echo ${RedF}[☠]${white} Ruby interpreter '->' ${RedF}not found! ${Reset};
-echo ${RedF}[☠]${white} This script requires ruby to work! ${Reset};
+echo ${RedF}[x]${white} Ruby interpreter '->' ${RedF}not found! ${Reset};
+echo ${RedF}[x]${white} This script requires ruby to work! ${Reset};
 sleep 1
 exit
 else
@@ -100,11 +100,11 @@ fi
 apc=`which wine`
 if [ "$?" != "0" ]; then
 echo ""
-echo ${RedF}[☠]${white} Wine installation '->' ${RedF}not found! ${Reset};
+echo ${RedF}[x]${white} Wine installation '->' ${RedF}not found! ${Reset};
 sleep 1
-echo ${RedF}[☠]${white} This script requires wine to work! ${Reset};
-echo ${RedF}[☠]${white} Please run: sudo apt-get install wine ${Reset};
-echo ${RedF}[☠]${white} to install missing dependencies... ${Reset};
+echo ${RedF}[x]${white} This script requires wine to work! ${Reset};
+echo ${RedF}[x]${white} Please run: sudo apt-get install wine ${Reset};
+echo ${RedF}[x]${white} to install missing dependencies... ${Reset};
 exit
 else
 echo ${BlueF}[☆]${white} Wine installation  '->' ${GreenF}found! ${Reset};
@@ -115,10 +115,10 @@ if [ -e "$HoME/.wine/drive_c/$PgFi" ]; then
 echo ${BlueF}[☆]${white} Wine ProgramFiles '->' ${GreenF}found! ${Reset};
 sleep 1
 else
-echo ${RedF}[☠]${white} Wine ProgramFiles '->' ${RedF}not found! ${Reset};
-echo ${RedF}[☠]${white} $HoME/.wine/drive_c/$PgFi ${Reset};
+echo ${RedF}[x]${white} Wine ProgramFiles '->' ${RedF}not found! ${Reset};
+echo ${RedF}[x]${white} $HoME/.wine/drive_c/$PgFi ${Reset};
 sleep 1
-echo ${RedF}[☠]${white} Please wait, running winecfg! ${Reset};
+echo ${RedF}[x]${white} Please wait, running winecfg! ${Reset};
 winecfg > /dev/null 2>&1
 sleep 1
 exit
@@ -137,7 +137,7 @@ if [ "$?" -eq "0" ]; then
 # orginal payload full-path variable
 UpL=$(zenity --title "☠ PAYLOAD TO BE TRANSFORMED ☠" --filename=$IPATH --file-selection --text "chose payload to be transformed") > /dev/null 2>&1
 # icon replacement variable
-IcOn=$(zenity --list --title "☠ ICON REPLACEMENT  ☠" --text "Chose one icon from the list." --radiolist --column "Pick" --column "Option" TRUE "Microsoft-Word-2016.ico" FALSE "Microsost-Word-2013.ico" FALSE "Powerpoint-green.ico" FALSE "Powerpoint-blue.ico" FALSE "Powerpoint-orange.ico" FALSE "Microsoft-Excel.ico" --width 350 --height 260) > /dev/null 2>&1
+IcOn=$(zenity --list --title "☠ ICON REPLACEMENT  ☠" --text "Chose one icon from the list." --radiolist --column "Pick" --column "Option" TRUE "Microsoft-Word-2016.ico" FALSE "Microsost-Word-2013.ico" FALSE "Powerpoint-green.ico" FALSE "Powerpoint-blue.ico" FALSE "Powerpoint-orange.ico" FALSE "Microsoft-Excel.ico" --width 350 --height 290) > /dev/null 2>&1
 # input payload outputname
 if [ "$tRan" = "YES" ];then
 MiP=$(zenity --entry --title "☠ PAYLOAD FINAL NAME ☠" --text "example: curriculum" --width 300) > /dev/null 2>&1
@@ -161,7 +161,7 @@ cat << !
       echo ${BlueF}[☆]${white} ResourceHacker.exe '->' ${GreenF}found! ${Reset};
       sleep 1
     else
-      echo ${RedF}[☠]${white} ResourceHacker.exe '->' ${RedF} not found! ${Reset};
+      echo ${RedF}[x]${white} ResourceHacker.exe '->' ${RedF} not found! ${Reset};
       sleep 1
 cat << !
     Installing ResourceHacker under .wine directorys... 
@@ -171,6 +171,10 @@ cat << !
 !
       sleep 3
       xterm -T "BackdoorPPt" -geometry 90x26 -e "$arch $IPATH/bin/reshacker_setup.exe && sleep 3"
+      echo ${YellowF}[⊶]${white} Please wait, restarting tool! ${Reset};
+      echo ${YellowF}[⊶]${white} For proper ResourceHacker.exe Instalation! ${Reset};
+      sleep 2
+      exit
     fi
 
       # wine command to call resourcehacker and add a MS-WORD.ico to the backdoor
