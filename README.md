@@ -1,5 +1,5 @@
 [![Version](https://img.shields.io/badge/backdoorppt-1.5-brightgreen.svg?maxAge=259200)]()
-[![Stage](https://img.shields.io/badge/Release-developing-red.svg)]()
+[![Stage](https://img.shields.io/badge/Release-STABLE-red.svg)]()
 [![Build](https://img.shields.io/badge/Supported_OS-kali,Ubuntu,Mint-blue.svg)]()
 
 
