@@ -1,11 +1,11 @@
-[![Version](https://img.shields.io/badge/backdoorppt-1.4-brightgreen.svg?maxAge=259200)]()
+[![Version](https://img.shields.io/badge/backdoorppt-1.5-brightgreen.svg?maxAge=259200)]()
 [![Stage](https://img.shields.io/badge/Release-developing-red.svg)]()
 [![Build](https://img.shields.io/badge/Supported_OS-kali,Ubuntu,Mint-blue.svg)]()
 
 
 # backdoorppt - 'A binary transformation tool'
 
-    Version release: v1.4-Beta
+    Version release: v1.5-Stable
     Distros Supported: Linux Kali, Ubuntu, Mint
     Author: pedro ubuntu  [ r00t-3xp10it ]
     Suspicious-Shell-Activity© (SSA) RedTeam develop @2017
@@ -34,8 +34,8 @@
 
     xterm, wine, ruby, ResourceHacker(wine)
 
-    'backdoorppt script will work on wine 32 or 64 bites'
-    'it also installs ResourceHacker under .wine directory'
+    'backdoorppt script will work on wine 32 or 64 bits'
+    'it also installs ResourceHacker under .../.wine/Program Files/.. directorys'
 
 ## Tool Limitations
 
@@ -58,8 +58,8 @@
 
 ## Final notes
 
-    the target user thinks we is opening a word doc file,
-    but in fact we is executing one binary payload insted.
+    Target user thinks they are opening a word document file,
+    but in fact they are executing one binary payload insted.
 
 <br />
 Credits: **Damon Mohammadbagher**
