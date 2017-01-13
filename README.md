@@ -3,7 +3,7 @@
 [![Build](https://img.shields.io/badge/Supported_OS-kali,Ubuntu,Mint-blue.svg)]()
 
 
-# backdoorppt - 'A binary transformation tool'
+# backdoorppt - 'Office spoof extensions tool'
 
     Version release: v1.5-Stable
     Distros Supported: Linux Kali, Ubuntu, Mint
