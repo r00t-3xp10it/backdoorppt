@@ -13,7 +13,7 @@
 
 ### Spoof extension method to use?
 #
-# RUBY - Right to Left Override
+# RUBY - RTLO Right to Left Override
 # This trick uses Right to Left unicode to reverse the last six characters so that
 # the extension is spoofed, for example a notes.exe file can be renamed to notesexe.txt
 # Although the file extension clearly shows as .txt in Explorer the Windows operating

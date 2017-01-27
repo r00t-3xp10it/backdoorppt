@@ -111,6 +111,34 @@ echo ${BlueF}[☆]${white} Wine installation  '->' ${GreenF}found! ${Reset};
 sleep 1
 fi
 
+apc=`which zenity`
+if [ "$?" != "0" ]; then
+echo ""
+echo ${RedF}[x]${white} Zenity installation '->' ${RedF}not found! ${Reset};
+sleep 1
+echo ${RedF}[x]${white} This script requires Zenity to work! ${Reset};
+echo ${RedF}[x]${white} Please run: sudo apt-get install zenity ${Reset};
+echo ${RedF}[x]${white} to install missing dependencies... ${Reset};
+exit
+else
+echo ${BlueF}[☆]${white} Zenity installation  '->' ${GreenF}found! ${Reset};
+sleep 1
+fi
+
+apc=`which xterm`
+if [ "$?" != "0" ]; then
+echo ""
+echo ${RedF}[x]${white} Xterm installation '->' ${RedF}not found! ${Reset};
+sleep 1
+echo ${RedF}[x]${white} This script requires xterm to work! ${Reset};
+echo ${RedF}[x]${white} Please run: sudo apt-get install xterm ${Reset};
+echo ${RedF}[x]${white} to install missing dependencies... ${Reset};
+exit
+else
+echo ${BlueF}[☆]${white} Xterm installation  '->' ${GreenF}found! ${Reset};
+sleep 1
+fi
+
 if [ -e "$HoME/.wine/drive_c/$PgFi" ]; then
 echo ${BlueF}[☆]${white} Wine ProgramFiles '->' ${GreenF}found! ${Reset};
 sleep 1
