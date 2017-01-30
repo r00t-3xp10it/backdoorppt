@@ -92,7 +92,7 @@ echo ${RedF}[x]${white} This script requires ruby to work! ${Reset};
 sleep 1
 exit
 else
-echo ${BlueF}[☆]${white} Ruby installation  '->' ${GreenF}found! ${Reset};
+echo ${BlueF}[☆]${white} Ruby installation '->' ${GreenF}found! ${Reset};
 sleep 1
 fi
 fi
@@ -111,6 +111,7 @@ echo ${BlueF}[☆]${white} Wine installation  '->' ${GreenF}found! ${Reset};
 sleep 1
 fi
 
+
 apc=`which zenity`
 if [ "$?" != "0" ]; then
 echo ""
@@ -121,7 +122,7 @@ echo ${RedF}[x]${white} Please run: sudo apt-get install zenity ${Reset};
 echo ${RedF}[x]${white} to install missing dependencies... ${Reset};
 exit
 else
-echo ${BlueF}[☆]${white} Zenity installation  '->' ${GreenF}found! ${Reset};
+echo ${BlueF}[☆]${white} Zenity installation'->' ${GreenF}found! ${Reset};
 sleep 1
 fi
 
@@ -135,15 +136,15 @@ echo ${RedF}[x]${white} Please run: sudo apt-get install xterm ${Reset};
 echo ${RedF}[x]${white} to install missing dependencies... ${Reset};
 exit
 else
-echo ${BlueF}[☆]${white} Xterm installation  '->' ${GreenF}found! ${Reset};
+echo ${BlueF}[☆]${white} Xterm installation   '->' ${GreenF}found! ${Reset};
 sleep 1
 fi
 
 if [ -e "$HoME/.wine/drive_c/$PgFi" ]; then
-echo ${BlueF}[☆]${white} Wine ProgramFiles '->' ${GreenF}found! ${Reset};
+echo ${BlueF}[☆]${white} Wine Program Files  '->' ${GreenF}found! ${Reset};
 sleep 1
 else
-echo ${RedF}[x]${white} Wine ProgramFiles '->' ${RedF}not found! ${Reset};
+echo ${RedF}[x]${white} Wine Program Files '->' ${RedF}not found! ${Reset};
 echo ${RedF}[x]${white} $HoME/.wine/drive_c/$PgFi ${Reset};
 sleep 1
 echo ${RedF}[x]${white} Please wait, running winecfg! ${Reset};
