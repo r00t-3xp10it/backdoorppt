@@ -39,6 +39,7 @@ BASH_TRANSFORMATION=NO
 # This option bypasses the use of resourcehacker.exe to chance the icons
 # of the payload to be transformed (you will have to change the icons manualy)
 # because backdooppt will only chance the payload extensions if this option is active.
+# Accepted values are: YES or NO
 ------------------------
 RESOURCEHACKER_BYPASS=NO
 ------------------------

