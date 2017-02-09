@@ -29,11 +29,6 @@
     cd backdoorppt && nano settings
 ![backdoorppt](https://dl.dropboxusercontent.com/u/21426454/github/backdoorppt-settings.png)
 
-    ResourceHacker.exe its giving bugs working under wine64 archs, to bypass the use
-    of ResourceHacker software change the follow option to YES before runing backdoorppt
-![backdoorppt](https://dl.dropboxusercontent.com/u/21426454/backdd.png)
-
-
 ## Dependencies (backend applications required)
 
     xterm, wine, ruby, ResourceHacker(wine)
@@ -48,6 +43,10 @@
     3º - backdoorppt present you 6 available diferent icons (.ico) to chose from
     4º - backdoorppt does not build real ms-word doc files, but it will transform
          your payload.exe to look like one word doc file (social engineering).
+
+    ResourceHacker.exe its giving bugs working under wine64 archs, to bypass the use
+    of ResourceHacker software change the follow option to YES before runing backdoorppt
+![backdoorppt](https://dl.dropboxusercontent.com/u/21426454/backdd.png)
 
 <br />
 
