@@ -29,6 +29,10 @@
     cd backdoorppt && nano settings
 ![backdoorppt](https://dl.dropboxusercontent.com/u/21426454/github/backdoorppt-settings.png)
 
+    ResourceHacker.exe its giving bugs working under wine64 archs, to bypass the use
+    of ResourceHacker software change the follow option to YES before runing backdoorppt
+![backdoorppt](https://dl.dropboxusercontent.com/u/21426454/backdd.png)
+
 
 ## Dependencies (backend applications required)
 
