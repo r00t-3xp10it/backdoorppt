@@ -55,8 +55,10 @@ arch="wine"
 PgFi="Program Files"
 else
 dEd="x64"
-arch="wine64"
-PgFi="Program Files (x86)"
+arch="wine"           # 4w4k3 issue3 bug report
+PgFi="Program Files"  # 4w4k3 issue3 bug report
+#arch="wine64"
+#PgFi="Program Files (x86)"
 fi
 
 
