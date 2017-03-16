@@ -27,7 +27,7 @@
     Edit the 'settings' file to chose what method should be used..
 
     cd backdoorppt && nano settings
-![backdoorppt](https://dl.dropboxusercontent.com/u/21426454/github/backdoorppt-settings.png)
+![backdoorppt](http://3.1m.yt/7KSe1Vv.png)
 
 ## Dependencies (backend applications required)
 
@@ -48,18 +48,18 @@
     of ResourceHacker software change the follow option to YES before runing backdoorppt
 
     cd backdoorppt && nano settings
-![backdoorppt](https://dl.dropboxusercontent.com/u/21426454/backdd.png)
+![backdoorppt](http://1.1m.yt/1u36NP3.png)
 
 <br /><br />
 
 ## Backdoorppt 1º run (Kali distros)
-![backdoorppt](https://dl.dropboxusercontent.com/u/21426454/github/backdoorppt-requires.png)
+![backdoorppt](http://3.1m.yt/tb4bEhb.png)
 
 ## Backdoorppt working (Kali distros)
-![backdoorppt](https://dl.dropboxusercontent.com/u/21426454/github/backdoorppt.png)
+![backdoorppt](http://1.1m.yt/ca3OERI.png)
 
 ## transformed files on-target system (windows)
-![backdoorppt](https://dl.dropboxusercontent.com/u/21426454/github/backdoorppt-windows.jpg)
+![backdoorppt](http://4.1m.yt/IBwxk5T.jpg)
 
 ## Final notes
 
