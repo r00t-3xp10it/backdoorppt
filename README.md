@@ -1,13 +1,13 @@
-[![Version](https://img.shields.io/badge/backdoorppt-1.5-brightgreen.svg?maxAge=259200)]()
-[![Stage](https://img.shields.io/badge/Release-STABLE-brightgreen.svg)]()
+[![Version](https://img.shields.io/badge/backdoorppt-1.6-brightgreen.svg?maxAge=259200)]()
+[![Stage](https://img.shields.io/badge/Release-Stable-brightgreen.svg)]()
 [![Build](https://img.shields.io/badge/Supported_OS-kali,Ubuntu,Mint-blue.svg)]()
 
 
 # backdoorppt - 'Office spoof extensions tool'
 
-    Version release: v1.5-Stable
-    Distros Supported: Linux Kali, Ubuntu, Mint
+    Version release: v1.6-Stable
     Author: pedro ubuntu  [ r00t-3xp10it ]
+    Distros Supported: Linux Kali, Ubuntu, Mint
     Suspicious-Shell-Activity© (SSA) RedTeam develop @2017
 
 <br />
@@ -44,22 +44,17 @@
     4º - backdoorppt does not build real ms-word doc files, but it will transform
          your payload.exe to look like one word doc file (social engineering).
 
-    5º - ResourceHacker.exe its giving bugs working under wine64 archs, to bypass the use
-    of ResourceHacker software change the follow option to YES before runing backdoorppt
-
-    cd backdoorppt && nano settings
-![backdoorppt](http://1.1m.yt/1u36NP3.png)
 
 <br /><br />
 
-## Backdoorppt 1º run (Kali distros)
-![backdoorppt](http://3.1m.yt/tb4bEhb.png)
 
 ## Backdoorppt working (Kali distros)
-![backdoorppt](http://1.1m.yt/ca3OERI.png)
+![backdoorppt](http://1.1m.yt/ngKwUAG.png)
 
 ## transformed files on-target system (windows)
 ![backdoorppt](http://4.1m.yt/IBwxk5T.jpg)
+
+<br /><br />
 
 ## Final notes
 
@@ -67,7 +62,7 @@
     but in fact they are executing one binary payload insted.
 
 <br />
-Credits: **Damon Mohammadbagher**
-<br />
-Article: **goo.gl/hKHesk**
+
+### Special thanks:
+**@Damon Mohammadbagher** | Article: goo.gl/hKHesk
 
