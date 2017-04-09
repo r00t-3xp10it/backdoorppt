@@ -64,5 +64,5 @@
 <br />
 
 ### Special thanks:
-**@Damon Mohammadbagher** | Article: goo.gl/hKHesk
+**@Damon Mohammadbagher** | **Article: goo.gl/hKHesk**
 
