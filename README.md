@@ -1,11 +1,11 @@
-[![Version](https://img.shields.io/badge/backdoorppt-1.6-brightgreen.svg?maxAge=259200)]()
+[![Version](https://img.shields.io/badge/backdoorppt-1.7-brightgreen.svg?maxAge=259200)]()
 [![Stage](https://img.shields.io/badge/Release-Stable-brightgreen.svg)]()
 [![Build](https://img.shields.io/badge/Supported_OS-kali,Ubuntu,Mint-blue.svg)]()
 
 
 # backdoorppt - 'Office spoof extensions tool'
 
-    Version release: v1.6-Stable
+    Version release: v1.7-Stable
     Author: pedro ubuntu  [ r00t-3xp10it ]
     Distros Supported: Linux Kali, Ubuntu, Mint
     Suspicious-Shell-Activity© (SSA) RedTeam develop @2017
