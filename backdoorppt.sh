@@ -196,9 +196,16 @@ IcOn=$(zenity --list --title "☠ ICON REPLACEMENT  ☠" --text "Chose one icon 
     PaTh="$IPATH/icons/$IcOn"
   fi
 fi
+#
 # Input payload output name ..
+# And check if inputed program its one .exe binarie ..
+#
 MiP=$(zenity --entry --title "☠ PAYLOAD FINAL NAME ☠" --text "example: curriculum" --width 300) > /dev/null 2>&1
-
+che=`echo $UpL | cut -d '.' -f2`
+if ! [ "$che" = "exe" ]; then
+  echo ${RedF}[x]${white} Only ${GreenF}.exe${white} binaries are accepted by this tool .. ${Reset};
+  exit
+fi
 
   #
   # If RH BYPASS its not active (settings file)
