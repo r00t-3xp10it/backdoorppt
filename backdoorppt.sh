@@ -308,8 +308,9 @@ fi
     echo ${RedF}"    Tool Author : r00t-3xp10it (SSA RedTeam)"${Reset};
   else
     echo ""
+    dre="exe.ppt"
     echo ${RedF}"    Icon select : $IcOn"${Reset};
-    echo ${RedF}"    Final file  : $IPATH/output/goodsexe.ppt"${Reset};
+    echo ${RedF}"    Final file  : $IPATH/output/$MiP$dre"${Reset};
     echo ${RedF}"    Tool Author : r00t-3xp10it (SSA RedTeam)"${Reset};
   fi
 
