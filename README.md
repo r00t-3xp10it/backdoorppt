@@ -28,7 +28,7 @@
     Edit the 'settings' file to chose what method should be used..
 
     cd backdoorppt && nano settings
-![backdoorppt](http://3.1m.yt/7KSe1Vv.png)
+![backdoorppt](http://i.cubeupload.com/ldKWDd.png)
 
 ## Dependencies (backend applications required)
 
@@ -50,7 +50,7 @@
 
 
 ## Backdoorppt working (Kali distros)
-![backdoorppt](http://1.1m.yt/ngKwUAG.png)
+![backdoorppt](http://i.cubeupload.com/ueWu5R.png)
 
 ## transformed files on-target system (windows)
 ![backdoorppt](http://4.1m.yt/IBwxk5T.jpg)

