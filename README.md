@@ -53,7 +53,7 @@
 ![backdoorppt](http://i.cubeupload.com/ueWu5R.png)
 
 ## transformed files on-target system (windows)
-![backdoorppt](http://4.1m.yt/IBwxk5T.jpg)
+![backdoorppt](hhttp://i.cubeupload.com/Hkv0jp.jpeg)
 
 <br /><br />
 
