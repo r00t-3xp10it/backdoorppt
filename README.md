@@ -11,6 +11,8 @@
     Distros Supported: Linux Kali, Ubuntu, Mint
     Suspicious-Shell-Activity© (SSA) RedTeam develop @2017
 
+![backdoorppt](http://i.cubeupload.com/2JJ2IA.png)
+
 <br />
 
 ## Transform your payload.exe into one fake word doc (.ppt)
@@ -47,7 +49,6 @@
 
 
 <br /><br />
-
 
 ## Backdoorppt working (Kali distros)
 ![backdoorppt](http://i.cubeupload.com/ueWu5R.png)
