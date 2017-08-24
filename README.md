@@ -67,7 +67,8 @@
 
 
 ## Video tutorials:
-[ backdoorppt ]: https://youtu.be/k4UJW4p1E3w
+
+backdoorppt: https://www.youtube.com/watch?v=k4UJW4p1E3w&t=1s
 
 <br />
 
