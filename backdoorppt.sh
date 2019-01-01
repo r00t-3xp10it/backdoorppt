@@ -59,7 +59,8 @@ if [ "$ArCh" = "i686" ]; then
 else
   dEd="x64"
   arch="wine64"
-  PgFi="Program Files (x86)"
+  # bug? PgFi="Program Files (x86)"
+  PgFi="Program Files"
 fi
 #
 # Resource hacker install path (local)
