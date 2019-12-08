@@ -52,14 +52,17 @@ ByPa=`cat $IPATH/settings | egrep -m 1 "RESOURCEHACKER_BYPASS" | cut -d '=' -f2`
 #
 # configuring correct arch
 #
-if [ "$ArCh" = "i686" ]; then
+if [ "$ArCh" = "i386" ] || [ "$ArCh" = "i686" ]; then
   dEd="x86"
   arch="wine"
   PgFi="Program Files"
+elif [ "$ArCh" = "x86_64" ] || [ "ArCh" = "amd64" ]; then
+  dEd="x64"
+  arch="wine64"
+  PgFi="Program Files (x86)" # default value  
 else
   dEd="x64"
   arch="wine64"
-  # bug? PgFi="Program Files (x86)"
   PgFi="Program Files"
 fi
 #
@@ -241,7 +244,7 @@ fi
 cat << !
 
     Installing ResourceHacker under .wine directorys... 
-    Version:windows7 Arch:$dEd Path:drive_c/$PgFi
+    Version:windows7 Arch:$ArCh Path:drive_c/$PgFi
     $HoME/.wine/drive_c/$PgFi/Resource Hacker/ResourceHacker.exe
 
 !
